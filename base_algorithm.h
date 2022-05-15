@@ -20,7 +20,7 @@ public:
         LOG(WARNING) << "Generate all approximate vertex covers";
     }
 
-private:
+protected:
     std::unique_ptr<HyperGraph> hyper_graph_;
     std::shared_ptr<OutputQueue> output_queue_;
 };
