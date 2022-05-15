@@ -8,7 +8,11 @@ cc_library(
     hdrs=[
         "common/bitset.h",
         "common/intset.h",
-        "common/hypergraph.h"
+        "common/hypergraph.h",
+        "common/concurrent_drop_head_queue.h"
+    ],
+    deps=[
+        "@com_github_google_glog//:glog",
     ]
 )
 
@@ -33,6 +37,15 @@ cc_test(
 cc_test(
     name="hypergraph_test",
     srcs=["test/hypergraph_test.cpp"],
+    deps=[
+        ":common",
+        "@com_google_googletest//:gtest_main",
+    ]
+)
+
+cc_test(
+    name="concurrent_queue_test",
+    srcs=["test/concurrent_drop_head_queue_test.cpp"],
     deps=[
         ":common",
         "@com_google_googletest//:gtest_main",
