@@ -1,19 +1,17 @@
 #include <iostream>
 #include <bitset>
 #include "common/intset.h"
+#include "base_algorithm.h"
 
 #include "glog/logging.h"
-typedef std::bitset<2> BitSet;
 
-using vcc::IntSet;
+using vcc::BaseAlgorithm;
+using vcc::OutputQueue;
 
 int main(int argc, char** argv) {
-    BitSet a(2);
-    BitSet b(a);
-    b.flip(1);
-    LOG(INFO) << a[0] << " " << a[1];
-    LOG(INFO) << b[0] << " " << b[1];
-    std::unique_ptr<int> ptr;
-    if (ptr == nullptr) printf("null\n");
+    BaseAlgorithm base_alg(nullptr, std::make_shared<OutputQueue>(OutputQueue(10)));
+    base_alg.RunAll();
+    base_alg.RunApproximate();
+    base_alg.RunDiverse();
     return 0;
 }

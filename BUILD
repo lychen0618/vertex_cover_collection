@@ -16,11 +16,19 @@ cc_library(
     ]
 )
 
+cc_library(
+    name="base_alg",
+    srcs=["base_algorithm.cpp"],
+    hdrs=["base_algorithm.h"],
+    deps=[":common"]
+)
+
 cc_binary(
     name="test_code",
     srcs=["test/test_code.cpp"],
     deps=[
         ":common",
+        ":base_alg",
         "@com_github_google_glog//:glog",
     ]
 )
