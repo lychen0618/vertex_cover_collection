@@ -1,0 +1,29 @@
+cc_library(
+    name="common",
+    srcs=[
+        "common/bitset.cpp",
+        "common/intset.cpp"
+    ],
+    hdrs=[
+        "common/bitset.h",
+        "common/intset.h"
+    ]
+)
+
+cc_binary(
+    name="test_code",
+    srcs=["test/test_code.cpp"],
+    deps=[
+        ":common",
+        "@com_github_google_glog//:glog",
+    ]
+)
+
+cc_test(
+    name="intset_test",
+    srcs=["test/intset_test.cpp"],
+    deps=[
+        ":common",
+        "@com_google_googletest//:gtest_main",
+    ]
+)
