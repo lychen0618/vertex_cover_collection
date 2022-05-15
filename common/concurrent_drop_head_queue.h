@@ -40,6 +40,8 @@ public:
         return req;
     }
 
+    size_t Size() const { return queue_.size(); }
+
 private:
     std::queue<RequestType> queue_;
     const size_t capacity_;
