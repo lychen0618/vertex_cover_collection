@@ -2,11 +2,13 @@ cc_library(
     name="common",
     srcs=[
         "common/bitset.cpp",
-        "common/intset.cpp"
+        "common/intset.cpp",
+        "common/hypergraph.cpp"
     ],
     hdrs=[
         "common/bitset.h",
-        "common/intset.h"
+        "common/intset.h",
+        "common/hypergraph.h"
     ]
 )
 
@@ -22,6 +24,15 @@ cc_binary(
 cc_test(
     name="intset_test",
     srcs=["test/intset_test.cpp"],
+    deps=[
+        ":common",
+        "@com_google_googletest//:gtest_main",
+    ]
+)
+
+cc_test(
+    name="hypergraph_test",
+    srcs=["test/hypergraph_test.cpp"],
     deps=[
         ":common",
         "@com_google_googletest//:gtest_main",
