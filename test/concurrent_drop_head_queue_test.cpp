@@ -1,7 +1,8 @@
 #include "common/concurrent_drop_head_queue.h"
 #include "gtest/gtest.h"
+using vcc::ConcurrentDropHeadQueue;
 
-namespace vcc {
+namespace {
 class ConcurrentQueueTest : public ::testing::Test {
 protected:
     ConcurrentQueueTest() {}
@@ -31,4 +32,4 @@ int main(int argc, char** argv) {
     return RUN_ALL_TESTS();
 }
 
-}  // namespace vcc
+}  // namespace

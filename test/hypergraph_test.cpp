@@ -2,7 +2,12 @@
 
 #include "gtest/gtest.h"
 
-namespace vcc {
+using vcc::IntSet;
+using vcc::BitSet;
+using vcc::HyperGraph;
+
+namespace {
+
 class HyperGraphTest : public ::testing::Test {
 protected:
     HyperGraphTest() {}
@@ -50,4 +55,4 @@ int main(int argc, char** argv) {
     return RUN_ALL_TESTS();
 }
 
-}  // namespace vcc
+}  // namespace

@@ -9,7 +9,8 @@ using vcc::BaseAlgorithm;
 using vcc::OutputQueue;
 
 int main(int argc, char** argv) {
-    BaseAlgorithm base_alg(nullptr, std::make_shared<OutputQueue>(OutputQueue(10)));
+    std::shared_ptr<OutputQueue> output_queue = std::make_shared<OutputQueue>(10);
+    BaseAlgorithm base_alg(nullptr, output_queue);
     base_alg.RunAll();
     base_alg.RunApproximate();
     base_alg.RunDiverse();

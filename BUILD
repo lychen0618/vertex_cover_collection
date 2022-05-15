@@ -23,6 +23,15 @@ cc_library(
     deps=[":common"]
 )
 
+cc_library(
+    name="mmcs_set",
+    srcs=["mmcs.cpp"],
+    hdrs=["mmcs.h"],
+    deps=[
+        ":base_alg"
+    ]
+)
+
 cc_binary(
     name="test_code",
     srcs=["test/test_code.cpp"],
@@ -34,8 +43,12 @@ cc_binary(
 )
 
 cc_test(
-    name="intset_test",
-    srcs=["test/intset_test.cpp"],
+    name="common_test",
+    srcs=[
+        "test/intset_test.cpp",
+        "test/hypergraph_test.cpp",
+        "test/concurrent_drop_head_queue_test.cpp"
+    ],
     deps=[
         ":common",
         "@com_google_googletest//:gtest_main",
@@ -43,19 +56,10 @@ cc_test(
 )
 
 cc_test(
-    name="hypergraph_test",
-    srcs=["test/hypergraph_test.cpp"],
+    name="mmcs_test",
+    srcs=["test/mmcs_test.cpp"],
     deps=[
-        ":common",
-        "@com_google_googletest//:gtest_main",
-    ]
-)
-
-cc_test(
-    name="concurrent_queue_test",
-    srcs=["test/concurrent_drop_head_queue_test.cpp"],
-    deps=[
-        ":common",
-        "@com_google_googletest//:gtest_main",
+        ":mmcs_set",
+        "@com_google_googletest//:gtest_main"
     ]
 )

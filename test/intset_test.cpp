@@ -1,8 +1,10 @@
 #include "common/intset.h"
 
 #include "gtest/gtest.h"
+using vcc::IntSet;
+using vcc::BitSet;
 
-namespace vcc {
+namespace {
 class IntSetTest : public ::testing::Test {
 protected:
     IntSetTest() {}
@@ -174,4 +176,4 @@ int main(int argc, char** argv) {
     return RUN_ALL_TESTS();
 }
 
-}  // namespace vcc
+}  // namespace
