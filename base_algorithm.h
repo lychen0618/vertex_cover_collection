@@ -9,7 +9,7 @@ typedef ConcurrentDropHeadQueue<IntSet> OutputQueue;
 
 class BaseAlgorithm {
 public:
-    BaseAlgorithm(HyperGraph* hyper_graph,
+    BaseAlgorithm(std::shared_ptr<HyperGraph> hyper_graph,
                   std::shared_ptr<OutputQueue> output_queue);
 
     virtual void RunAll() { LOG(WARNING) << "Generate all vertex covers"; }
@@ -21,7 +21,7 @@ public:
     }
 
 protected:
-    std::unique_ptr<HyperGraph> hyper_graph_;
+    std::shared_ptr<HyperGraph> hyper_graph_;
     std::shared_ptr<OutputQueue> output_queue_;
 };
 }  // namespace vcc

@@ -8,7 +8,9 @@ public:
     enum Method { ORDER, RANDOM, MIN, MAX };
     typedef std::vector<IntSet> IntSetVector;
 
-    MMCS(HyperGraph* hyper_graph, std::shared_ptr<OutputQueue> output_queue);
+    MMCS(std::shared_ptr<HyperGraph> hyper_graph, std::shared_ptr<OutputQueue> output_queue);
+
+    ~MMCS() = default;
 
     void RunAll() override {
         CommonInit();

@@ -18,7 +18,8 @@ TEST_F(MMCSTest, SimpleExampleTest){
         intset_hypergraph.emplace_back(edge);
     }
     std::shared_ptr<OutputQueue> output_queue(new OutputQueue(100));
-    MMCS mmcs(new HyperGraph(intset_hypergraph), output_queue);
+    std::shared_ptr<HyperGraph> hyper_graph(new HyperGraph(intset_hypergraph));
+    MMCS mmcs(hyper_graph, output_queue);
     mmcs.RunAll();
     // 1 2; 0 4; 2 4; 5 4
     EXPECT_EQ(output_queue->Size(), 4U);

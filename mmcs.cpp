@@ -3,7 +3,7 @@
 #include <random>
 
 namespace vcc {
-MMCS::MMCS(HyperGraph* hyper_graph, std::shared_ptr<OutputQueue> output_queue)
+MMCS::MMCS(std::shared_ptr<HyperGraph> hyper_graph, std::shared_ptr<OutputQueue> output_queue)
     : BaseAlgorithm(hyper_graph, output_queue) {}
 
 void MMCS::CommonInit() {
