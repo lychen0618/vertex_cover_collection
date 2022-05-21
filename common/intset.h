@@ -11,21 +11,15 @@ public:
             elements_->push_back(i);
     }
     IntSet(const std::vector<int>& elements) { Set(elements); }
-    IntSet(const BitSet& bit_set){
-        Set(bit_set.Get());
-    }
+    IntSet(const BitSet& bit_set) { Set(bit_set.Get()); }
     IntSet(const IntSet& int_set) {
-        printf("copy constructor called\n");
         elements_.reset(new std::vector<int>(*int_set.elements_));
     }
     IntSet& operator=(const IntSet& int_set) {
-        printf("= operator called\n");
         elements_.reset(new std::vector<int>(*int_set.elements_));
         return *this;
     }
-    IntSet(IntSet&& int_set) : elements_(int_set.elements_.release()) {
-        printf("move constructor called\n");
-    }
+    IntSet(IntSet&& int_set) : elements_(int_set.elements_.release()) {}
     ~IntSet() = default;
 
     bool IsEmpty() const { return elements_ == nullptr || elements_->empty(); }
