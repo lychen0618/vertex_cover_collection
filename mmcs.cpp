@@ -4,7 +4,8 @@
 
 namespace vcc {
 MMCS::MMCS(std::shared_ptr<HyperGraph> hyper_graph, std::shared_ptr<OutputQueue> output_queue)
-    : BaseAlgorithm(hyper_graph, output_queue) {}
+    : BaseAlgorithm(hyper_graph, output_queue), method_(Method::ORDER) {
+}
 
 void MMCS::CommonInit() {
     cur_.reset(new BitSet());

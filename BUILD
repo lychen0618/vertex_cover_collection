@@ -9,7 +9,8 @@ cc_library(
         "common/bitset.h",
         "common/intset.h",
         "common/hypergraph.h",
-        "common/concurrent_drop_head_queue.h"
+        "common/concurrent_drop_head_queue.h",
+        "common/approximate_functions.h"
     ],
     deps=[
         "@com_github_google_glog//:glog",
@@ -29,6 +30,15 @@ cc_library(
     hdrs=["mmcs.h"],
     deps=[
         ":base_alg"
+    ]
+)
+
+cc_library(
+    name="adc_enum",
+    srcs=["adc_enum.cpp"],
+    hdrs=["adc_enum.h"],
+    deps=[
+        ":mmcs_set"
     ]
 )
 
@@ -60,6 +70,15 @@ cc_test(
     srcs=["test/mmcs_test.cpp"],
     deps=[
         ":mmcs_set",
+        "@com_google_googletest//:gtest_main"
+    ]
+)
+
+cc_test(
+    name="adc_enum_test",
+    srcs=["test/adc_enum_test.cpp"],
+    deps=[
+        ":adc_enum",
         "@com_google_googletest//:gtest_main"
     ]
 )

@@ -21,11 +21,8 @@ public:
 
     void SetMethod(Method m) { method_ = m; }
 
-private:
+protected:
     void CommonInit();
-    void RunAll_(std::shared_ptr<BitSet> cand,
-                 std::shared_ptr<IntSetVector> crit);
-
     const IntSet& GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy) const;
 
     bool VertexWouldViolate(std::shared_ptr<IntSetVector> crit,
@@ -39,5 +36,8 @@ private:
     std::unique_ptr<BitSet> cur_;
     std::unique_ptr<BitSet> uncov_;
     Method method_;
+private:
+    void RunAll_(std::shared_ptr<BitSet> cand,
+                 std::shared_ptr<IntSetVector> crit);
 };
 }  // namespace vcc
