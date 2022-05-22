@@ -1,8 +1,12 @@
 #include "adc_enum.h"
 
 #include "gtest/gtest.h"
+using vcc::HyperGraph;
+using vcc::OutputQueue;
+using vcc::IntSet;
+using vcc::ADCEnum;
 
-namespace vcc {
+namespace {
 class ADCEnumTest : public ::testing::Test {
 protected:
     ADCEnumTest() {}
