@@ -46,6 +46,15 @@ cc_library(
     ]
 )
 
+cc_library(
+    name="advanced_adc_enum",
+    srcs=["advanced_adc_enum.cpp"],
+    hdrs=["advanced_adc_enum.h"],
+    deps=[
+        ":adc_enum"
+    ]
+)
+
 cc_binary(
     name="test_code",
     srcs=["test/test_code.cpp"],
@@ -84,6 +93,15 @@ cc_test(
     srcs=["test/adc_enum_test.cpp"],
     deps=[
         ":adc_enum",
+        "@com_google_googletest//:gtest_main"
+    ]
+)
+
+cc_test(
+    name="advanced_adc_enum_test",
+    srcs=["test/advanced_adc_enum_test.cpp"],
+    deps=[
+        ":advanced_adc_enum",
         "@com_google_googletest//:gtest_main"
     ]
 )

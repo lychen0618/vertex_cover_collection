@@ -23,6 +23,10 @@ public:
 
     void TaskEnd();
 
+    int DebugFunc(){
+        return task_num_;
+    }
+
 private:
     int thread_num_;
     std::shared_ptr<std::mutex> mutex_;
