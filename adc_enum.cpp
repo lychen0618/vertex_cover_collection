@@ -16,11 +16,11 @@ void ADCEnum::RunApproximate_(std::shared_ptr<BitSet> cand,
         return;
     }
     std::shared_ptr<BitSet> cand_copy = std::make_shared<BitSet>(*cand);
-    const IntSet& next_cover_edge = GetGoodEdgeToCover(cand_copy);
-    if (next_cover_edge.IsEmpty())
+    const IntSet* next_cover_edge = GetGoodEdgeToCover(cand_copy);
+    if (!next_cover_edge)
         return;
     std::shared_ptr<BitSet> c =
-        std::make_shared<BitSet>(IntSet::And(*cand_copy, next_cover_edge));
+        std::make_shared<BitSet>(IntSet::And(*cand_copy, *next_cover_edge));
     IntSet::AndNot(*cand_copy, *c);
     std::unique_ptr<BitSet> can_hit_copy(new BitSet(*can_hit_));
     UpdateCanCover(cand_copy);
@@ -56,19 +56,18 @@ bool ADCEnum::IsMinimal(std::shared_ptr<IntSetVector>& crit) {
     return true;
 }
 
-const IntSet& ADCEnum::GetGoodEdgeToCover(
+const IntSet* ADCEnum::GetGoodEdgeToCover(
     std::shared_ptr<BitSet>& cand_copy) const {
     if (method_ == Method::ORDER) {
         for (auto e_i : uncov_->Get()) {
             if (can_hit_->Get(e_i))
-                return hyper_graph_->GetEdge(e_i);
+                return &(hyper_graph_->GetEdge(e_i));
         }
-        std::shared_ptr<IntSet> empty_intset(new IntSet());
-        return *empty_intset;
+        return nullptr;
     } else if (method_ == Method::RANDOM) {
-        return hyper_graph_->GetEdge(uncov_->NextSetBit());
+        return &(hyper_graph_->GetEdge(uncov_->NextSetBit()));
     } else {
-        return hyper_graph_->GetEdge(uncov_->NextSetBit());
+        return &(hyper_graph_->GetEdge(uncov_->NextSetBit()));
     }
 }
 

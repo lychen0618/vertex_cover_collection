@@ -22,7 +22,7 @@ protected:
     bool IsMinimal(std::shared_ptr<IntSetVector>& crit);
     void UpdateCanCover(std::shared_ptr<BitSet>& cand_copy);
     bool WillCover(std::shared_ptr<BitSet>& cand_copy);
-    const IntSet& GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy) const;
+    const IntSet* GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy) const;
 
     const double theta_;
     std::unique_ptr<BitSet> can_hit_;
