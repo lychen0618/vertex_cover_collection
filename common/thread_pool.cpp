@@ -2,40 +2,34 @@
 
 namespace vcc {
 ThreadPool::ThreadPool(int threads_limit)
-    : thread_num_(threads_limit),
-      service_{},
-      service_worker_(new boost::asio::io_service::work(service_)),
-      closed_(false) {}
+    : thread_num_(threads_limit), mutex_(new std::mutex()), task_num_(0) {}
 
-ThreadPool::~ThreadPool() { Close(); }
+ThreadPool::~ThreadPool() {
+    pool_.reset();
+    mutex_.reset();
+}
 
 void ThreadPool::Start() {
-    auto thisPtr = shared_from_this();
-    auto worker = [thisPtr] {
-        std::ostringstream oss;
-        oss << "current thread: " << std::this_thread::get_id();
-        std::cout << oss.str() << std::endl;
-
-        if (!thisPtr->closed_) {
-            std::cout << oss.str() << std::endl;
-            return thisPtr->service_.run();
-        }
-        return size_t(0);
-    };
-
-    for (int i = 0; i < thread_num_; ++i) {
-        group_.add_thread(new boost::thread(worker));
-    }
+    pool_.reset(new boost::asio::thread_pool(thread_num_));
 }
 
-void ThreadPool::Close() {
-    closed_ = true;
-    service_worker_.reset();
-    group_.join_all();
-    service_.stop();
-}
+void ThreadPool::Wait() { pool_->join(); }
 
 void ThreadPool::AddTask(std::function<void()> task) {
-    service_.dispatch(task);
+    boost::asio::post(*pool_, task);
+}
+
+bool ThreadPool::IsFull() {
+    std::unique_lock<std::mutex> lock(*mutex_);
+    if (task_num_ < thread_num_) {
+        task_num_++;
+        return false;
+    } else
+        return true;
+}
+
+void ThreadPool::TaskEnd() {
+    std::unique_lock<std::mutex> lock(*mutex_);
+    task_num_--;
 }
 }  // namespace vcc
