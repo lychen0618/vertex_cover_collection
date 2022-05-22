@@ -49,7 +49,7 @@ const IntSet& MMCS::GetGoodEdgeToCover(
     }
 }
 
-bool MMCS::VertexWouldViolate(std::shared_ptr<IntSetVector> crit,
+bool MMCS::VertexWouldViolate(std::shared_ptr<IntSetVector>& crit,
                               const int& vertex) const {
     const IntSet& vertex_hitting = hyper_graph_->GetVertexHitting(vertex);
     for (const IntSet& one_crit : *crit) {
@@ -60,7 +60,7 @@ bool MMCS::VertexWouldViolate(std::shared_ptr<IntSetVector> crit,
     return false;
 }
 
-void MMCS::UpdateCritAndUncov(std::shared_ptr<IntSetVector> crit,
+void MMCS::UpdateCritAndUncov(std::shared_ptr<IntSetVector>& crit,
                               const IntSet& vertex_hitting) {
     for (auto& one_crit : *crit) {
         one_crit.AndNot(vertex_hitting);
@@ -69,7 +69,7 @@ void MMCS::UpdateCritAndUncov(std::shared_ptr<IntSetVector> crit,
     IntSet::AndNot(*uncov_, vertex_hitting);
 }
 
-void MMCS::RestoreCritAndUncov(std::shared_ptr<IntSetVector> crit) {
+void MMCS::RestoreCritAndUncov(std::shared_ptr<IntSetVector>& crit) {
     IntSet::Or(*uncov_, crit->back());
 }
 

@@ -25,13 +25,13 @@ protected:
     void CommonInit();
     const IntSet& GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy) const;
 
-    bool VertexWouldViolate(std::shared_ptr<IntSetVector> crit,
+    bool VertexWouldViolate(std::shared_ptr<IntSetVector>& crit,
                             const int& vertex) const;
 
-    void UpdateCritAndUncov(std::shared_ptr<IntSetVector> crit,
+    void UpdateCritAndUncov(std::shared_ptr<IntSetVector>& crit,
                             const IntSet& vertex_hitting);
 
-    void RestoreCritAndUncov(std::shared_ptr<IntSetVector> crit);
+    void RestoreCritAndUncov(std::shared_ptr<IntSetVector>& crit);
 
     std::unique_ptr<BitSet> cur_;
     std::unique_ptr<BitSet> uncov_;
