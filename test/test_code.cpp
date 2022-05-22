@@ -14,5 +14,6 @@ int main(int argc, char** argv) {
     base_alg.RunAll();
     base_alg.RunApproximate();
     base_alg.RunDiverse();
+    std::cout << __cplusplus << std::endl;
     return 0;
 }

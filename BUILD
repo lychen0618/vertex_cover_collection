@@ -3,17 +3,22 @@ cc_library(
     srcs=[
         "common/bitset.cpp",
         "common/intset.cpp",
-        "common/hypergraph.cpp"
+        "common/hypergraph.cpp",
+        "common/thread_pool.cpp"
     ],
     hdrs=[
         "common/bitset.h",
         "common/intset.h",
         "common/hypergraph.h",
         "common/concurrent_drop_head_queue.h",
-        "common/approximate_functions.h"
+        "common/approximate_functions.h",
+        "common/thread_pool.h"
     ],
     deps=[
         "@com_github_google_glog//:glog",
+        "@boost//:thread",
+        "@boost//:system",
+        "@boost//:asio"
     ]
 )
 
@@ -57,7 +62,8 @@ cc_test(
     srcs=[
         "test/intset_test.cpp",
         "test/hypergraph_test.cpp",
-        "test/concurrent_drop_head_queue_test.cpp"
+        "test/concurrent_drop_head_queue_test.cpp",
+        "test/thread_pool_test.cpp"
     ],
     deps=[
         ":common",
