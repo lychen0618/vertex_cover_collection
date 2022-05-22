@@ -47,7 +47,7 @@ void ADCEnum::CommonInit() {
     can_hit_.reset(new BitSet(hyper_graph_->EdgeNum()));
 }
 
-bool ADCEnum::IsMinimal(std::shared_ptr<IntSetVector> crit) {
+bool ADCEnum::IsMinimal(std::shared_ptr<IntSetVector>& crit) {
     for (const auto& one_crit : *crit) {
         if (f1(hyper_graph_, uncov_->Count() + one_crit.Size()) >= 1 - theta_) {
             return false;
