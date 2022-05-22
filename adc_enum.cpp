@@ -88,12 +88,12 @@ void ADCEnum::UpdateCanCover(std::shared_ptr<BitSet>& cand_copy) {
 }
 
 bool ADCEnum::WillCover(std::shared_ptr<BitSet>& cand_copy) {
-    std::shared_ptr<BitSet> uncov(new BitSet(*uncov_));
+    std::shared_ptr<BitSet> new_uncov(new BitSet(*uncov_));
     for (auto& vertex : cand_copy->Get()) {
         for (auto& e_i : hyper_graph_->GetVertexHitting(vertex).Get()) {
-            uncov->Reset(e_i);
+            new_uncov->Reset(e_i);
         }
     }
-    return f1(hyper_graph_, uncov->Count()) >= 1 - theta_;
+    return f1(hyper_graph_, new_uncov->Count()) >= 1 - theta_;
 }
 }  // namespace vcc
