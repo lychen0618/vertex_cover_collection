@@ -1,7 +1,5 @@
 #pragma once
 
-#include <iostream>
-
 #include "mmcs.h"
 
 namespace vcc {
@@ -21,7 +19,6 @@ public:
                 new BitSet(hyper_graph_->GetVertices()));
             std::shared_ptr<IntSetVector> crit(new IntSetVector());
             RunDiverse_(cand, crit);
-            std::cout << "here" << std::endl;
         }
     }
 
