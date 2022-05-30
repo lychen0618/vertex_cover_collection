@@ -1,10 +1,11 @@
 #include "adc_enum.h"
 
 #include "gtest/gtest.h"
-using vcc::HyperGraph;
-using vcc::OutputQueue;
-using vcc::IntSet;
 using vcc::ADCEnum;
+using vcc::HyperGraph;
+using vcc::IntSet;
+using vcc::MMCS;
+using vcc::OutputQueue;
 
 namespace {
 class ADCEnumTest : public ::testing::Test {
@@ -19,12 +20,16 @@ TEST_F(ADCEnumTest, ZeroThetaSimpleExampleTest) {
     for (const auto& edge : raw_hypergraph) {
         intset_hypergraph.emplace_back(edge);
     }
-    std::shared_ptr<OutputQueue> output_queue(new OutputQueue(100));
     std::shared_ptr<HyperGraph> hyper_graph(new HyperGraph(intset_hypergraph));
-    ADCEnum adc_enum(hyper_graph, output_queue, 0);
-    adc_enum.RunApproximate();
-    // 1 2; 0 4; 2 4; 5 4
-    EXPECT_EQ(output_queue->Size(), 4U);
+    for (MMCS::Method m : {MMCS::Method::ORDER, MMCS::Method::RANDOM,
+                           MMCS::Method::MIN, MMCS::Method::MAX}) {
+        std::shared_ptr<OutputQueue> output_queue(new OutputQueue(100));
+        ADCEnum adc_enum(hyper_graph, output_queue, 0);
+        adc_enum.SetMethod(m);
+        adc_enum.RunApproximate();
+        // 1 2; 0 4; 2 4; 5 4
+        EXPECT_EQ(output_queue->Size(), 4U);
+    }
 }
 
 TEST_F(ADCEnumTest, NonZeroThetaSimpleExampleTest) {
@@ -33,12 +38,16 @@ TEST_F(ADCEnumTest, NonZeroThetaSimpleExampleTest) {
     for (const auto& edge : raw_hypergraph) {
         intset_hypergraph.emplace_back(edge);
     }
-    std::shared_ptr<OutputQueue> output_queue(new OutputQueue(100));
     std::shared_ptr<HyperGraph> hyper_graph(new HyperGraph(intset_hypergraph));
-    ADCEnum adc_enum(hyper_graph, output_queue, 0.34);
-    adc_enum.RunApproximate();
-    // 4; 0 1; 2; 1 5
-    EXPECT_EQ(output_queue->Size(), 4U);
+    for (MMCS::Method m : {MMCS::Method::ORDER, MMCS::Method::RANDOM,
+                           MMCS::Method::MIN, MMCS::Method::MAX}) {
+        std::shared_ptr<OutputQueue> output_queue(new OutputQueue(100));
+        ADCEnum adc_enum(hyper_graph, output_queue, 0.34);
+        adc_enum.SetMethod(m);
+        adc_enum.RunApproximate();
+        // 4; 0 1; 2; 1 5
+        EXPECT_EQ(output_queue->Size(), 4U);
+    }
 }
 
 int main(int argc, char** argv) {
@@ -46,4 +55,4 @@ int main(int argc, char** argv) {
     return RUN_ALL_TESTS();
 }
 
-}  // namespace vcc
+}  // namespace

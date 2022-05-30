@@ -56,18 +56,35 @@ bool ADCEnum::IsMinimal(std::shared_ptr<IntSetVector>& crit) {
     return true;
 }
 
-const IntSet* ADCEnum::GetGoodEdgeToCover(
-    std::shared_ptr<BitSet>& cand_copy) const {
-    if (method_ == Method::ORDER) {
+const IntSet* ADCEnum::GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy) {
+    if (method_ == Method::ORDER || method_ == Method::RANDOM) {
         for (auto e_i : uncov_->Get()) {
-            if (can_hit_->Get(e_i))
+            if (can_hit_->Get(e_i)) {
+                next_edge_ = e_i;
                 return &(hyper_graph_->GetEdge(e_i));
+            }
         }
         return nullptr;
-    } else if (method_ == Method::RANDOM) {
-        return &(hyper_graph_->GetEdge(uncov_->NextSetBit()));
     } else {
-        return &(hyper_graph_->GetEdge(uncov_->NextSetBit()));
+        size_t temp = ((method_ == Method::MIN) ? INT_MAX : 0);
+        bool get = false;
+        for (int w = uncov_->NextSetBit(); w != -1; w = uncov_->NextSetBit(w)) {
+            if (!can_hit_->Get(w))
+                continue;
+            size_t t =
+                IntSet::And(*cand_copy, hyper_graph_->GetEdge(w)).Count();
+            if (method_ == Method::MIN && t < temp) {
+                next_edge_ = w;
+                temp = t;
+                get = true;
+            }
+            if (method_ == Method::MAX && t > temp) {
+                next_edge_ = w;
+                temp = t;
+                get = true;
+            }
+        }
+        return get ? &(hyper_graph_->GetEdge(next_edge_)) : nullptr;
     }
 }
 

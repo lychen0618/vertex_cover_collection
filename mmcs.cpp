@@ -3,9 +3,11 @@
 #include <random>
 
 namespace vcc {
-MMCS::MMCS(std::shared_ptr<HyperGraph> hyper_graph, std::shared_ptr<OutputQueue> output_queue)
-    : BaseAlgorithm(hyper_graph, output_queue), method_(Method::ORDER) {
-}
+MMCS::MMCS(std::shared_ptr<HyperGraph> hyper_graph,
+           std::shared_ptr<OutputQueue> output_queue)
+    : BaseAlgorithm(hyper_graph, output_queue),
+      method_(Method::ORDER),
+      random_gen_(new RandomGenerator()) {}
 
 void MMCS::CommonInit() {
     cur_.reset(new BitSet());
@@ -38,14 +40,33 @@ void MMCS::RunAll_(std::shared_ptr<BitSet> cand,
     }
 }
 
-const IntSet& MMCS::GetGoodEdgeToCover(
-    std::shared_ptr<BitSet>& cand_copy) const {
+const IntSet& MMCS::GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy) {
     if (method_ == Method::ORDER) {
-        return hyper_graph_->GetEdge(uncov_->NextSetBit());
+        next_edge_ = uncov_->NextSetBit();
+        return hyper_graph_->GetEdge(next_edge_);
     } else if (method_ == Method::RANDOM) {
-        return hyper_graph_->GetEdge(uncov_->NextSetBit());
+        std::vector<int> uncov_edges(std::move(uncov_->Get()));
+        next_edge_ = random_gen_->RandomInt() % uncov_edges.size();
+        return hyper_graph_->GetEdge(uncov_edges[next_edge_]);
     } else {
-        return hyper_graph_->GetEdge(uncov_->NextSetBit());
+        if (cur_->Count() == 0) {
+            std::vector<int> uncov_edges(std::move(uncov_->Get()));
+            next_edge_ = random_gen_->RandomInt() % uncov_edges.size();
+            return hyper_graph_->GetEdge(uncov_edges[next_edge_]);
+        }
+        size_t temp = ((method_ == Method::MIN) ? INT_MAX : 0);
+        for (int w = uncov_->NextSetBit(); w != -1; w = uncov_->NextSetBit(w)) {
+            size_t t = IntSet::And(*cand_copy, hyper_graph_->GetEdge(w)).Count();
+            if (method_ == Method::MIN && t < temp) {
+                next_edge_ = w;
+                temp = t;
+            }
+            if (method_ == Method::MAX && t > temp) {
+                next_edge_ = w;
+                temp = t;
+            }
+        }
+        return hyper_graph_->GetEdge(next_edge_);
     }
 }
 

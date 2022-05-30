@@ -1,6 +1,7 @@
 #pragma once
 
 #include "base_algorithm.h"
+#include "common/random_generator.h"
 
 namespace vcc {
 class MMCS : public BaseAlgorithm {
@@ -23,7 +24,7 @@ public:
 
 protected:
     void CommonInit();
-    const IntSet& GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy) const;
+    const IntSet& GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy);
 
     bool VertexWouldViolate(std::shared_ptr<IntSetVector>& crit,
                             const int& vertex) const;
@@ -36,6 +37,8 @@ protected:
     std::unique_ptr<BitSet> cur_;
     std::unique_ptr<BitSet> uncov_;
     Method method_;
+    std::unique_ptr<RandomGenerator> random_gen_;
+    int next_edge_;
 private:
     void RunAll_(std::shared_ptr<BitSet> cand,
                  std::shared_ptr<IntSetVector> crit);

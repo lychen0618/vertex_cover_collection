@@ -44,7 +44,7 @@ private:
 
     const IntSet* GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy,
                                      std::shared_ptr<BitSet>& uncov,
-                                     std::shared_ptr<BitSet>& can_hit) const;
+                                     std::shared_ptr<BitSet>& can_hit);
 
     void UpdateCanCover(std::shared_ptr<BitSet>& cand_copy,
                         std::shared_ptr<BitSet>& uncov,
