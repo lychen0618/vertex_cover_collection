@@ -54,7 +54,7 @@ const IntSet& MMCS::GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy) {
             next_edge_ = random_gen_->RandomInt() % uncov_edges.size();
             return hyper_graph_->GetEdge(uncov_edges[next_edge_]);
         }
-        size_t temp = ((method_ == Method::MIN) ? INT_MAX : 0);
+        size_t temp = ((method_ == Method::MIN) ? INT_MAX : INT_MIN);
         for (int w = uncov_->NextSetBit(); w != -1; w = uncov_->NextSetBit(w)) {
             size_t t = IntSet::And(*cand_copy, hyper_graph_->GetEdge(w)).Count();
             if (method_ == Method::MIN && t < temp) {

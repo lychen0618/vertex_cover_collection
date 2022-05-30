@@ -57,6 +57,15 @@ cc_library(
     ]
 )
 
+cc_library(
+    name="random_enum",
+    srcs=["random_enum.cpp"],
+    hdrs=["random_enum.h"],
+    deps=[
+        ":mmcs_set"
+    ]
+)
+
 cc_binary(
     name="test_code",
     srcs=["test/test_code.cpp"],
@@ -104,6 +113,15 @@ cc_test(
     srcs=["test/advanced_adc_enum_test.cpp"],
     deps=[
         ":advanced_adc_enum",
+        "@com_google_googletest//:gtest_main"
+    ]
+)
+
+cc_test(
+    name="random_enum_test",
+    srcs=["test/random_enum_test.cpp"],
+    deps=[
+        ":random_enum",
         "@com_google_googletest//:gtest_main"
     ]
 )
