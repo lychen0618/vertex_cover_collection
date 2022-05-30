@@ -4,7 +4,8 @@ cc_library(
         "common/bitset.cpp",
         "common/intset.cpp",
         "common/hypergraph.cpp",
-        "common/thread_pool.cpp"
+        "common/thread_pool.cpp",
+        "common/random_generator.cpp"
     ],
     hdrs=[
         "common/bitset.h",
@@ -12,7 +13,8 @@ cc_library(
         "common/hypergraph.h",
         "common/concurrent_drop_head_queue.h",
         "common/approximate_functions.h",
-        "common/thread_pool.h"
+        "common/thread_pool.h",
+        "common/random_generator.h"
     ],
     deps=[
         "@com_github_google_glog//:glog",
