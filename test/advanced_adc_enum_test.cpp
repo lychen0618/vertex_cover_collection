@@ -1,10 +1,11 @@
 #include "advanced_adc_enum.h"
 
 #include "gtest/gtest.h"
-using vcc::HyperGraph;
-using vcc::OutputQueue;
-using vcc::IntSet;
 using vcc::AdvancedADCEnum;
+using vcc::HyperGraph;
+using vcc::IntSet;
+using vcc::MMCS;
+using vcc::OutputQueue;
 
 namespace {
 class AdvancedADCEnumTest : public ::testing::Test {
@@ -19,13 +20,17 @@ TEST_F(AdvancedADCEnumTest, ZeroThetaSimpleExampleTest) {
     for (const auto& edge : raw_hypergraph) {
         intset_hypergraph.emplace_back(edge);
     }
-    std::shared_ptr<OutputQueue> output_queue(new OutputQueue(100));
     std::shared_ptr<HyperGraph> hyper_graph(new HyperGraph(intset_hypergraph));
-    AdvancedADCEnum adc_enum(hyper_graph, output_queue, 0);
-    adc_enum.RunApproximate();
-    // 1 2; 0 4; 2 4; 5 4
-    EXPECT_EQ(output_queue->Size(), 4U);
-    EXPECT_EQ(adc_enum.DebugFunc(), 0);
+    for (MMCS::Method m : {MMCS::Method::ORDER, MMCS::Method::RANDOM,
+                           MMCS::Method::MIN, MMCS::Method::MAX}) {
+        std::shared_ptr<OutputQueue> output_queue(new OutputQueue(100));
+        AdvancedADCEnum adc_enum(hyper_graph, output_queue, 0);
+        adc_enum.SetMethod(m);
+        adc_enum.RunApproximate();
+        // 1 2; 0 4; 2 4; 5 4
+        EXPECT_EQ(output_queue->Size(), 4U);
+        EXPECT_EQ(adc_enum.DebugFunc(), 0);
+    }
 }
 
 TEST_F(AdvancedADCEnumTest, NonZeroThetaSimpleExampleTest) {
@@ -34,13 +39,17 @@ TEST_F(AdvancedADCEnumTest, NonZeroThetaSimpleExampleTest) {
     for (const auto& edge : raw_hypergraph) {
         intset_hypergraph.emplace_back(edge);
     }
-    std::shared_ptr<OutputQueue> output_queue(new OutputQueue(100));
     std::shared_ptr<HyperGraph> hyper_graph(new HyperGraph(intset_hypergraph));
-    AdvancedADCEnum adc_enum(hyper_graph, output_queue, 0.34);
-    adc_enum.RunApproximate();
-    // 4; 0 1; 2; 1 5
-    EXPECT_EQ(output_queue->Size(), 4U);
-    EXPECT_EQ(adc_enum.DebugFunc(), 0);
+    for (MMCS::Method m : {MMCS::Method::ORDER, MMCS::Method::RANDOM,
+                           MMCS::Method::MIN, MMCS::Method::MAX}) {
+        std::shared_ptr<OutputQueue> output_queue(new OutputQueue(100));
+        AdvancedADCEnum adc_enum(hyper_graph, output_queue, 0.34);
+        adc_enum.SetMethod(m);
+        adc_enum.RunApproximate();
+        // 4; 0 1; 2; 1 5
+        EXPECT_EQ(output_queue->Size(), 4U);
+        EXPECT_EQ(adc_enum.DebugFunc(), 0);
+    }
 }
 
 int main(int argc, char** argv) {
@@ -48,4 +57,4 @@ int main(int argc, char** argv) {
     return RUN_ALL_TESTS();
 }
 
-}  // namespace vcc
+}  // namespace
