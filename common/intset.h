@@ -59,6 +59,11 @@ public:
         elements_.reset(AndNot(*this, b).elements_.release());
     }
 
+    int Another(int e) const {
+        if ((*elements_)[0] != e) return (*elements_)[0];
+        else return (*elements_)[1];
+    }
+
     std::string ToString() const;
 
 private:
