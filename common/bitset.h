@@ -47,6 +47,8 @@ public:
 
     int NextSetBit(int start = -1) const;
 
+    void Or(const BitSet& b);
+
     std::string ToString() const;
 
 private:

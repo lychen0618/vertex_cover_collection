@@ -7,7 +7,7 @@ BitSet::BitSet(size_t size) : bitset_(new BigBitSet()) {
     }
 }
 
-BitSet::BitSet(const std::vector<int>& vec): bitset_(new BigBitSet()) {
+BitSet::BitSet(const std::vector<int>& vec) : bitset_(new BigBitSet()) {
     for (const auto& e : vec) {
         bitset_->set(e);
     }
@@ -28,6 +28,12 @@ int BitSet::NextSetBit(int start) const {
             return i;
     }
     return -1;
+}
+
+void BitSet::Or(const BitSet& b) {
+    for (int v : b.Get()) {
+        bitset_->set(v);
+    }
 }
 
 std::string BitSet::ToString() const {

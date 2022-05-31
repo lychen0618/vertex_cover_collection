@@ -13,20 +13,45 @@ RandomEnum::RandomEnum(std::shared_ptr<HyperGraph> hyper_graph,
       required_number_of_vc_(number_of_vc),
       stop_flag_(false),
       is_auto_inc_(auto_inc),
+      vc_list_(number_of_vc),
       ran_gen_for_mess_(new RandomGenerator()),
       ran_gen_for_back_(new RandomGenerator()) {}
+
+void RandomEnum::RunDiverse() {
+    std::vector<std::shared_ptr<HyperGraph>> sub_graphs;
+    hyper_graph_->GetSubGraph(sub_graphs);
+    for (size_t g_i = 0; g_i < sub_graphs.size(); ++g_i) {
+        hyper_graph_ = sub_graphs[g_i];
+        cover_index_ = 0;
+        while (cover_index_ < required_number_of_vc_) {
+            CommonInit();
+            cur_list_.clear();
+            back_steps_ = 0;
+            stop_flag_ = false;
+            std::shared_ptr<BitSet> cand(
+                new BitSet(hyper_graph_->GetVertices()));
+            std::shared_ptr<IntSetVector> crit(new IntSetVector());
+            RunDiverse_(cand, crit);
+        }
+    }
+    // fill output queue
+    for (auto& vc : vc_list_) {
+        LOG(INFO) << "Get one vc: " << vc.ToString();
+        output_queue_->Push(IntSet(vc));
+    }
+}
 
 void RandomEnum::RunDiverse_(std::shared_ptr<BitSet> cand,
                              std::shared_ptr<IntSetVector> crit) {
     if (stop_flag_)
         return;
     if (uncov_->IsEmpty()) {
-        LOG(INFO) << "Get one vc: " << cur_->ToString();
-        output_queue_->Push(IntSet(*cur_));
-        cover_index_++;
+        if (!is_auto_inc_) {
+            vc_list_[cover_index_++].Or(*cur_);
+            UpdateStopFlag();
+        }
         // different choices
         back_steps_ = cur_->Count();
-        UpdateStopFlag();
         return;
     }
     std::shared_ptr<BitSet> cand_copy = std::make_shared<BitSet>(*cand);
@@ -38,8 +63,7 @@ void RandomEnum::RunDiverse_(std::shared_ptr<BitSet> cand,
     for (int w = c->NextSetBit(); w != -1; w = c->NextSetBit(w)) {
         messed_c.push_back(w);
         int id = ran_gen_for_mess_->RandomInt() % messed_c.size();
-        std::swap(messed_c[id],
-                  messed_c.back());
+        std::swap(messed_c[id], messed_c.back());
     }
 
     bool flag = false;
