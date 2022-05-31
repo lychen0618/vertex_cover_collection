@@ -11,6 +11,15 @@ HyperGraph::HyperGraph(const std::vector<IntSet>& edge_list)
     }
 }
 
+HyperGraph::HyperGraph(std::unordered_set<int>& vertex_set,
+                       std::vector<IntSet>& edge_set)
+    : edge_list_(new std::vector<IntSet>(std::move(edge_set))) {
+    vertices_.reset(new BitSet());
+    for (auto it = vertex_set.begin(); it != vertex_set.end(); ++it) {
+        vertices_->Set(*it);
+    }
+}
+
 const IntSet& HyperGraph::GetVertexHitting(int vertex) {
     if (vertex_hittings_ == nullptr) {
         vertex_hittings_.reset(new std::unordered_map<int, IntSet>());
@@ -26,6 +35,41 @@ const IntSet& HyperGraph::GetVertexHitting(int vertex) {
         }
     }
     return (*vertex_hittings_)[vertex];
+}
+
+void HyperGraph::GetSubGraph(
+    std::vector<std::shared_ptr<HyperGraph>>& sub_graphs) {
+    std::vector<bool> vertex_flag(vertices_->Size(), false);
+    std::vector<bool> edge_flag(EdgeNum(), false);
+    for (int i = 0; i < static_cast<int>(vertex_flag.size()); ++i) {
+        if (!vertices_->Get(i) || vertex_flag[i])
+            continue;
+        std::unordered_set<int> vertex_set;
+        std::vector<IntSet> edge_set;
+        GetSubGraphHelpFunc(i, vertex_set, edge_set, vertex_flag, edge_flag);
+        sub_graphs.emplace_back(new HyperGraph(vertex_set, edge_set));
+    }
+}
+
+void HyperGraph::GetSubGraphHelpFunc(int vertex,
+                                     std::unordered_set<int>& vertex_set,
+                                     std::vector<IntSet>& edge_set,
+                                     std::vector<bool>& vertex_flag,
+                                     std::vector<bool>& edge_flag) {
+    if (vertex_flag[vertex])
+        return;
+    vertex_set.insert(vertex);
+    vertex_flag[vertex] = true;
+    for (int e_i : GetVertexHitting(vertex).Get()) {
+        if (edge_flag[e_i])
+            continue;
+        edge_set.emplace_back(GetEdge(e_i));
+        edge_flag[e_i] = true;
+        for (int new_vertex : GetEdge(e_i).Get()) {
+            GetSubGraphHelpFunc(new_vertex, vertex_set, edge_set, vertex_flag,
+                                edge_flag);
+        }
+    }
 }
 
 }  // namespace vcc
