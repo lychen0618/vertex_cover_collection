@@ -36,6 +36,15 @@ void BitSet::Or(const BitSet& b) {
     }
 }
 
+float BitSet::GetDistance(const BitSet& a, const BitSet& b) {
+    int cnt = 0;
+    for (int w = a.NextSetBit(); w != -1; w = a.NextSetBit(w)) {
+        if (b.Get(w))
+            cnt++;
+    }
+    return 1 - float(cnt) / (a.Count() + b.Count() - cnt);
+}
+
 std::string BitSet::ToString() const {
     std::string output;
     if (!IsEmpty()) {

@@ -49,6 +49,8 @@ public:
 
     void Or(const BitSet& b);
 
+    static float GetDistance(const BitSet& a, const BitSet& b);
+
     std::string ToString() const;
 
 private:

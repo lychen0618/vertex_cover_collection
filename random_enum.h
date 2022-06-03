@@ -14,9 +14,13 @@ public:
     void RunDiverse() override;
 
 protected:
-    void UpdateStopFlag() {
+    virtual void UpdateStopFlag() {
         stop_flag_ = (cover_index_ == required_number_of_vc_);
     }
+
+    void RunDiverse_(std::shared_ptr<BitSet> cand,
+                     std::shared_ptr<IntSetVector> crit);
+
     int back_steps_;
     int cover_index_;
     const int required_number_of_vc_;
@@ -26,10 +30,6 @@ protected:
     std::vector<BitSet> vc_list_;
 
 private:
-    void RunDiverse_(std::shared_ptr<BitSet> cand,
-                     std::shared_ptr<IntSetVector> crit);
-
-    
     std::unique_ptr<RandomGenerator> ran_gen_for_mess_;
     std::unique_ptr<RandomGenerator> ran_gen_for_back_;
 };

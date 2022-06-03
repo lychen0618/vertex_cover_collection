@@ -49,6 +49,12 @@ void RandomEnum::RunDiverse_(std::shared_ptr<BitSet> cand,
         if (!is_auto_inc_) {
             vc_list_[cover_index_++].Or(*cur_);
             UpdateStopFlag();
+        } else {
+            if (cover_index_ == static_cast<int>(vc_list_.size())) {
+                vc_list_.push_back(BitSet());
+            }
+            vc_list_[cover_index_].Or(*cur_);
+            stop_flag_ = true;
         }
         // different choices
         back_steps_ = cur_->Count();

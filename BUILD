@@ -66,6 +66,15 @@ cc_library(
     ]
 )
 
+cc_library(
+    name="random_enum_auto_inc",
+    srcs=["random_enum_auto_inc.cpp"],
+    hdrs=["random_enum_auto_inc.h"],
+    deps=[
+        ":random_enum"
+    ]
+)
+
 cc_binary(
     name="test_code",
     srcs=["test/test_code.cpp"],
@@ -122,6 +131,15 @@ cc_test(
     srcs=["test/random_enum_test.cpp"],
     deps=[
         ":random_enum",
+        "@com_google_googletest//:gtest_main"
+    ]
+)
+
+cc_test(
+    name="random_enum_auto_inc_test",
+    srcs=["test/random_enum_auto_inc_test.cpp"],
+    deps=[
+        ":random_enum_auto_inc",
         "@com_google_googletest//:gtest_main"
     ]
 )
