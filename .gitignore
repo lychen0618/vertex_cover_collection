@@ -1,6 +1,2 @@
 .vscode
 bazel-*
-
-generate*
-protos/*
-rpc/*

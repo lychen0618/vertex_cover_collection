@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package vcc;
+
+enum RequestType {
+  ALL = 0;
+  DIVERSITY = 1;
+  APPROXIMATE = 2;
+}
+
+enum Algorithm {
+  MMCS = 0;
+  KS = 1;
+  BERGE = 2;
+}
+
+message ValueIntList {
+  // vertex id list
+  repeated int32 value = 1;
+}
+
+message RawHyperGraph {
+  // hyper edge
+  repeated ValueIntList edge = 1;
+}
+
+message GenRequest {
+  RawHyperGraph hyper_graph = 1;
+  Algorithm algorithm = 2;
+  RequestType request_type = 3;
+  bool multi_thread = 4;
+}
+
+message VertexCoverList {
+  // vertex cover list
+  repeated ValueIntList vertex_cover = 1;
+}
+
+message GenResponse {
+  VertexCoverList vertex_cover_list = 1;
+  repeated uint32 time_stamp = 2;
+}
+
+service VertexCoverGenerator {
+  // generate vertex covers according to the request
+  rpc Generate(GenRequest) returns (stream GenResponse) {}
+}
