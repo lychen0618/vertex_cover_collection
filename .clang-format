@@ -26,7 +26,7 @@ AllowShortLoopsOnASingleLine: false
 AlwaysBreakTemplateDeclarations: true
 DerivePointerAlignment: false
 PointerAlignment: Left
-BreakStringLiterals: false
+# BreakStringLiterals: false
 ReflowComments: true
 
 BinPackParameters: false
