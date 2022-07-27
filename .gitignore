@@ -1,2 +1,4 @@
 .vscode
 bazel-*
+experiments/data/*
+experiments/tmp.csv
