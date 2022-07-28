@@ -9,6 +9,7 @@
 #include "glog/logging.h"
 #include <random>
 #include "common/random_generator.h"
+#include "experiments/exp_framework.h"
 
 using vcc::BaseAlgorithm;
 using vcc::OutputQueue;
@@ -41,12 +42,13 @@ private:
 };
 
 int main(int argc, char** argv) {
-    std::default_random_engine e(1);
-    std::uniform_int_distribution<unsigned> u(0, INT_MAX);
-    vcc::RandomGenerator rg;
-    for(int i = 0; i < 10; ++i){
-        std::cout << u(e) << " " << rg.RandomInt() << std::endl;
-    }
+    // std::default_random_engine e(1);
+    // std::uniform_int_distribution<unsigned> u(0, INT_MAX);
+    // vcc::RandomGenerator rg;
+    // for(int i = 0; i < 10; ++i){
+    //     std::cout << u(e) << " " << rg.RandomInt() << std::endl;
+    // }
+    exps::simple_test();
         
     return 0;
 }

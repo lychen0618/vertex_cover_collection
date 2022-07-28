@@ -82,6 +82,18 @@ cc_binary(
         ":common",
         ":base_alg",
         "@com_github_google_glog//:glog",
+        ":exp"
+    ]
+)
+
+cc_library(
+    name="exp",
+    srcs=["experiments/exp_framework.cpp"],
+    hdrs=["experiments/exp_framework.h"],
+    deps=[
+        ":common",
+        "@boost//:filesystem",
+        "@boost//:algorithm"
     ]
 )
 

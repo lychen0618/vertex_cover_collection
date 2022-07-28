@@ -7,7 +7,7 @@
 #include <memory>
 #include <string>
 #include <vector>
-#define MAXBIT 2048
+#define MAXBIT 8192
 
 namespace vcc {
 
