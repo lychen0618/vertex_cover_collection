@@ -9,7 +9,7 @@ import os
 import shutil
 from io import open
 
-logging.basicConfig(level=logging.DEBUG, filename='./experiments/data/log.tmp', filemode='w+',
+logging.basicConfig(level=logging.DEBUG, filename='./experiments/log/evidence_set_generator.log', filemode='w+',
                     format='[%(asctime)s][%(levelname)s]: %(message)s', datefmt='%Y-%m-%d %H:%M')
 
 
