@@ -9,7 +9,6 @@ import os
 import shutil
 from io import open
 
-from requests import head
 logging.basicConfig(level=logging.DEBUG, filename='./experiments/data/log.tmp', filemode='w+',
                     format='[%(asctime)s][%(levelname)s]: %(message)s', datefmt='%Y-%m-%d %H:%M')
 
