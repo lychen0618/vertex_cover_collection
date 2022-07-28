@@ -61,5 +61,6 @@ private:
                              std::shared_ptr<BitSet>& uncov);
 
     std::unique_ptr<ThreadPool> thread_pool_;
+    std::vector<double> edge_priority_;
 };
 }  // namespace vcc

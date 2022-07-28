@@ -40,8 +40,9 @@ TEST_F(AdvancedADCEnumTest, NonZeroThetaSimpleExampleTest) {
         intset_hypergraph.emplace_back(edge);
     }
     std::shared_ptr<HyperGraph> hyper_graph(new HyperGraph(intset_hypergraph));
-    for (MMCS::Method m : {MMCS::Method::ORDER, MMCS::Method::RANDOM,
-                           MMCS::Method::MIN, MMCS::Method::MAX}) {
+    for (MMCS::Method m :
+         {MMCS::Method::ORDER, MMCS::Method::RANDOM, MMCS::Method::MIN,
+          MMCS::Method::MAX, MMCS::Method::PRIORITY}) {
         std::shared_ptr<OutputQueue> output_queue(new OutputQueue(100));
         AdvancedADCEnum adc_enum(hyper_graph, output_queue, 0.34);
         adc_enum.SetMethod(m);

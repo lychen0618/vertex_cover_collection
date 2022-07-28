@@ -1,4 +1,5 @@
 #include "advanced_adc_enum.h"
+#include <cmath>
 
 namespace vcc {
 AdvancedADCEnum::AdvancedADCEnum(std::shared_ptr<HyperGraph> hyper_graph,
@@ -81,7 +82,7 @@ const IntSet* AdvancedADCEnum::GetGoodEdgeToCover(
             }
         }
         return nullptr;
-    } else {
+    } else if (method_ == Method::MIN || method_ == Method::MAX) {
         size_t temp = ((method_ == Method::MIN) ? INT_MAX : 0);
         bool get = false;
         for (int w = uncov->NextSetBit(); w != -1; w = uncov->NextSetBit(w)) {
@@ -101,6 +102,38 @@ const IntSet* AdvancedADCEnum::GetGoodEdgeToCover(
             }
         }
         return get ? &(hyper_graph_->GetEdge(next_edge_)) : nullptr;
+    } else {
+        if (edge_priority_.size() == 0) {
+            edge_priority_ = std::vector<double>(hyper_graph_->EdgeNum(), 0);
+            std::vector<std::shared_ptr<HyperGraph>> subgraph;
+            std::vector<std::vector<int>> ei_list(
+                hyper_graph_->GetSubGraph(subgraph));
+            int g_i = 0;
+            for (auto& graph : subgraph) {
+                int edge_total_size = 0;
+                for (size_t e_i = 0; e_i < graph->EdgeNum(); ++e_i) {
+                    edge_total_size += graph->GetEdge(e_i).Size();
+                }
+                double avg = edge_total_size / graph->EdgeNum();
+                double rho = graph->VertexNum() / edge_total_size;
+                double p = pow(avg, rho * graph->EdgeNum());
+                for (auto& e_i : ei_list[g_i]) {
+                    edge_priority_[e_i] = p;
+                }
+                ++g_i;
+            }
+        }
+        int edge_id = -1;
+        for (int w = uncov->NextSetBit(); w != -1; w = uncov->NextSetBit(w)) {
+            if (!can_hit->Get(w))
+                continue;
+            if (edge_id == -1 || edge_priority_[w] > edge_priority_[edge_id]) {
+                edge_id = w;
+            }
+        }
+        if (edge_id != -1)
+            next_edge_ = edge_id;
+        return (edge_id != -1) ? &(hyper_graph_->GetEdge(next_edge_)) : nullptr;
     }
 }
 

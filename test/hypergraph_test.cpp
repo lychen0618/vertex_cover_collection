@@ -50,21 +50,23 @@ TEST_F(HyperGraphTest, SimpleExampleTest) {
     }
 }
 
-TEST_F(HyperGraphTest, GetSubGraphTest){
-    std::vector<std::vector<int>> raw_hypergraph = {
-        {3, 5}, {1, 4, 6}, {2, 4}};
+TEST_F(HyperGraphTest, GetSubGraphTest) {
+    std::vector<std::vector<int>> raw_hypergraph = {{3, 5}, {1, 4, 6}, {2, 4}};
     std::vector<IntSet> intset_hypergraph;
     for (const auto& edge : raw_hypergraph) {
         intset_hypergraph.emplace_back(edge);
     }
     HyperGraph hg(intset_hypergraph);
     std::vector<std::shared_ptr<HyperGraph>> sub_graphs;
-    hg.GetSubGraph(sub_graphs);
+    std::vector<std::vector<int>> ei_list = hg.GetSubGraph(sub_graphs);
     EXPECT_EQ(sub_graphs.size(), 2U);
     EXPECT_EQ(sub_graphs[0]->VertexNum(), 4U);
     EXPECT_EQ(sub_graphs[0]->EdgeNum(), 2U);
     EXPECT_EQ(sub_graphs[1]->VertexNum(), 2U);
     EXPECT_EQ(sub_graphs[1]->EdgeNum(), 1U);
+    EXPECT_EQ(ei_list.size(), 2U);
+    EXPECT_EQ(ei_list[0], std::vector<int>({1, 2}));
+    EXPECT_EQ(ei_list[1], std::vector<int>({0}));
 }
 
 int main(int argc, char** argv) {

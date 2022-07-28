@@ -37,8 +37,9 @@ const IntSet& HyperGraph::GetVertexHitting(int vertex) {
     return (*vertex_hittings_)[vertex];
 }
 
-void HyperGraph::GetSubGraph(
+std::vector<std::vector<int>> HyperGraph::GetSubGraph(
     std::vector<std::shared_ptr<HyperGraph>>& sub_graphs) {
+    std::vector<std::vector<int>> original_ei;
     std::vector<bool> vertex_flag(vertices_->Size(), false);
     std::vector<bool> edge_flag(EdgeNum(), false);
     for (int i = 0; i < static_cast<int>(vertex_flag.size()); ++i) {
@@ -46,16 +47,21 @@ void HyperGraph::GetSubGraph(
             continue;
         std::unordered_set<int> vertex_set;
         std::vector<IntSet> edge_set;
-        GetSubGraphHelpFunc(i, vertex_set, edge_set, vertex_flag, edge_flag);
+        std::vector<int> ei_list;
+        GetSubGraphHelpFunc(i, vertex_set, edge_set, vertex_flag, edge_flag,
+                            ei_list);
         sub_graphs.emplace_back(new HyperGraph(vertex_set, edge_set));
+        original_ei.emplace_back(std::move(ei_list));
     }
+    return original_ei;
 }
 
 void HyperGraph::GetSubGraphHelpFunc(int vertex,
                                      std::unordered_set<int>& vertex_set,
                                      std::vector<IntSet>& edge_set,
                                      std::vector<bool>& vertex_flag,
-                                     std::vector<bool>& edge_flag) {
+                                     std::vector<bool>& edge_flag,
+                                     std::vector<int>& ei_list) {
     if (vertex_flag[vertex])
         return;
     vertex_set.insert(vertex);
@@ -65,9 +71,10 @@ void HyperGraph::GetSubGraphHelpFunc(int vertex,
             continue;
         edge_set.emplace_back(GetEdge(e_i));
         edge_flag[e_i] = true;
+        ei_list.push_back(e_i);
         for (int new_vertex : GetEdge(e_i).Get()) {
             GetSubGraphHelpFunc(new_vertex, vertex_set, edge_set, vertex_flag,
-                                edge_flag);
+                                edge_flag, ei_list);
         }
     }
 }

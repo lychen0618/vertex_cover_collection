@@ -6,10 +6,11 @@
 namespace vcc {
 class MMCS : public BaseAlgorithm {
 public:
-    enum Method { ORDER, RANDOM, MIN, MAX };
+    enum Method { ORDER, RANDOM, MIN, MAX, PRIORITY };
     typedef std::vector<IntSet> IntSetVector;
 
-    MMCS(std::shared_ptr<HyperGraph> hyper_graph, std::shared_ptr<OutputQueue> output_queue);
+    MMCS(std::shared_ptr<HyperGraph> hyper_graph,
+         std::shared_ptr<OutputQueue> output_queue);
 
     ~MMCS() = default;
 
@@ -39,6 +40,7 @@ protected:
     Method method_;
     std::unique_ptr<RandomGenerator> random_gen_;
     int next_edge_;
+
 private:
     void RunAll_(std::shared_ptr<BitSet> cand,
                  std::shared_ptr<IntSetVector> crit);
