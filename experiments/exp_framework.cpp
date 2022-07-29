@@ -7,6 +7,7 @@ using boost::filesystem::path;
 using boost::filesystem::directory_iterator;
 using boost::algorithm::split;
 using boost::algorithm::is_space;
+using boost::algorithm::trim;
 namespace exps {
 void mmcs_executer(const std::vector<std::string>& datasets, Func func) {
     for (auto& dataset : datasets) {
@@ -20,6 +21,7 @@ void mmcs_executer(const std::vector<std::string>& datasets, Func func) {
             std::string line;
             std::vector<vcc::IntSet> input;
             while (getline(fstrm, line)) {
+                trim(line);
                 if (line == "")
                     break;
                 std::vector<std::string> out_strs;
@@ -31,7 +33,14 @@ void mmcs_executer(const std::vector<std::string>& datasets, Func func) {
             std::shared_ptr<vcc::HyperGraph> hg(new vcc::HyperGraph(input));
             LOG(INFO) << "vertex: " << hg->VertexNum()
                       << " edge: " << hg->EdgeNum();
+            auto start_time = std::chrono::system_clock::now();
             func(hg);
+            auto end_time = std::chrono::system_clock::now();
+            LOG(INFO) << "time cost: "
+                      << std::chrono::duration_cast<std::chrono::seconds>(
+                             end_time - start_time)
+                             .count()
+                      << "s";
             dir_iter++;
         }
     }
