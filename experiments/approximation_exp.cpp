@@ -27,7 +27,14 @@ void max_and_different_thread_num(std::shared_ptr<vcc::HyperGraph> hg) {
 }
 
 // The size of ThreadPool is zero. Use Priority Method.
-void priority_without_thread_pool(std::shared_ptr<vcc::HyperGraph> hg) {}
+void priority_without_thread_pool(std::shared_ptr<vcc::HyperGraph> hg) {
+    std::shared_ptr<vcc::OutputQueue> output_queue(new vcc::OutputQueue(100));
+    vcc::AdvancedADCEnum adc_enum(hg, output_queue, 0.1, 0);
+    adc_enum.SetMethod(vcc::MMCS::Method::PRIORITY);
+    adc_enum.SetToQueue(false);
+    adc_enum.SetToLog(false);
+    adc_enum.RunApproximate();
+}
 
 // Priority + ThreadPool
 void priority_and_thread_pool(std::shared_ptr<vcc::HyperGraph> hg) {}
@@ -47,12 +54,15 @@ int main(int argc, char** argv) {
         LOG(INFO) << "Round - " << round++;
         LOG(INFO) << "Run ADCEnum";
         exps::mmcs_executer(datasets, exps::baseline);
-        LOG(INFO) << "Run AdvancedADCEnum";
-        for (int tu : {1, 2, 4, 8, 16}) {
+        LOG(INFO) << "Run AdvancedADCEnum - Exp1";
+        for (int tu : {0, 1, 2, 4, 8, 16}) {
             exps::thread_num = tu;
             LOG(INFO) << "ThreadNum - " << exps::thread_num;
             exps::mmcs_executer(datasets, exps::max_and_different_thread_num);
         }
+        LOG(INFO) << "Run AdvancedADCEnum - Exp2";
+        exps::mmcs_executer(datasets, exps::priority_without_thread_pool);
+        LOG(INFO) << "Run AdvancedADCEnum - Exp3";
     }
     return 0;
 }

@@ -125,12 +125,21 @@ const IntSet* AdvancedADCEnum::GetGoodEdgeToCover(
                 ++g_i;
             }
         }
+        size_t temp = 0;
         int edge_id = -1;
         for (int w = uncov->NextSetBit(); w != -1; w = uncov->NextSetBit(w)) {
             if (!can_hit->Get(w))
                 continue;
+            size_t t =
+                IntSet::And(*cand_copy, hyper_graph_->GetEdge(w)).Count();
             if (edge_id == -1 || edge_priority_[w] > edge_priority_[edge_id]) {
                 edge_id = w;
+                temp = t;
+            } else if (edge_priority_[w] == edge_priority_[edge_id]) {
+                if (t > temp) {
+                    edge_id = w;
+                    temp = t;
+                }
             }
         }
         if (edge_id != -1)
