@@ -45,10 +45,12 @@ int main(int argc, char** argv) {
     int round = 1;
     for (auto& datasets : datasets_list) {
         LOG(INFO) << "Round - " << round++;
+        LOG(INFO) << "Run ADCEnum";
         exps::mmcs_executer(datasets, exps::baseline);
+        LOG(INFO) << "Run AdvancedADCEnum";
         for (int tu : {1, 2, 4, 8, 16}) {
-            thread_num = tu;
-            LOG(INFO) << "ThreadNum - " << thread_num;
+            exps::thread_num = tu;
+            LOG(INFO) << "ThreadNum - " << exps::thread_num;
             exps::mmcs_executer(datasets, exps::max_and_different_thread_num);
         }
     }
