@@ -23,6 +23,8 @@ public:
 
     void SetMethod(Method m) { method_ = m; }
 
+    void SetToQueue(const bool& to_queue) { to_queue_ = to_queue; }
+
 protected:
     void CommonInit();
     const IntSet& GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy);
@@ -35,6 +37,7 @@ protected:
 
     void RestoreCritAndUncov(std::shared_ptr<IntSetVector>& crit);
 
+    bool to_queue_ = true;
     std::unique_ptr<BitSet> cur_;
     std::unique_ptr<BitSet> uncov_;
     Method method_;

@@ -18,7 +18,8 @@ void MMCS::RunAll_(std::shared_ptr<BitSet> cand,
                    std::shared_ptr<IntSetVector> crit) {
     if (uncov_->IsEmpty()) {
         LOG(INFO) << "Get one vc: " << cur_->ToString();
-        output_queue_->Push(IntSet(*cur_));
+        if (to_queue_)
+            output_queue_->Push(IntSet(*cur_));
         return;
     }
     std::shared_ptr<BitSet> cand_copy = std::make_shared<BitSet>(*cand);
@@ -54,9 +55,10 @@ const IntSet& MMCS::GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy) {
             next_edge_ = random_gen_->RandomInt() % uncov_edges.size();
             return hyper_graph_->GetEdge(uncov_edges[next_edge_]);
         }
-        size_t temp = ((method_ == Method::MIN) ? INT_MAX : INT_MIN);
+        size_t temp = ((method_ == Method::MIN) ? INT_MAX : 0);
         for (int w = uncov_->NextSetBit(); w != -1; w = uncov_->NextSetBit(w)) {
-            size_t t = IntSet::And(*cand_copy, hyper_graph_->GetEdge(w)).Count();
+            size_t t =
+                IntSet::And(*cand_copy, hyper_graph_->GetEdge(w)).Count();
             if (method_ == Method::MIN && t < temp) {
                 next_edge_ = w;
                 temp = t;

@@ -19,7 +19,8 @@ void AdvancedADCEnum::RunApproximate_(std::shared_ptr<BitSet> cand,
     if (f1(hyper_graph_, uncov->Count()) >= 1 - theta_) {
         if (IsMinimal(crit, uncov)) {
             LOG(INFO) << "Get one vc: " << cur->ToString();
-            output_queue_->Push(IntSet(*cur));
+            if (to_queue_)
+                output_queue_->Push(IntSet(*cur));
         }
         return;
     }
