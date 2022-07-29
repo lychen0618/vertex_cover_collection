@@ -17,6 +17,8 @@ public:
         RunApproximate_(cand, crit);
     }
 
+    int GetTotalNumMVC() { return total_num_; }
+
 protected:
     void CommonInit();
     bool IsMinimal(std::shared_ptr<IntSetVector>& crit);
@@ -24,6 +26,7 @@ protected:
     bool WillCover(std::shared_ptr<BitSet>& cand_copy);
     const IntSet* GetGoodEdgeToCover(std::shared_ptr<BitSet>& cand_copy);
 
+    int total_num_ = 0;
     const double theta_;
     std::unique_ptr<BitSet> can_hit_;
 

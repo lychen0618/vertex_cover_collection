@@ -10,7 +10,9 @@ void ADCEnum::RunApproximate_(std::shared_ptr<BitSet> cand,
                               std::shared_ptr<IntSetVector> crit) {
     if (f1(hyper_graph_, uncov_->Count()) >= 1 - theta_) {
         if (IsMinimal(crit)) {
-            LOG(INFO) << "Get one vc: " << cur_->ToString();
+            ++total_num_;
+            if (to_log_)
+                LOG(INFO) << "Get one vc: " << cur_->ToString();
             if (to_queue_)
                 output_queue_->Push(IntSet(*cur_));
         }
