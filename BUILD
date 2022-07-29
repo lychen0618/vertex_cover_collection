@@ -97,6 +97,15 @@ cc_library(
     ]
 )
 
+cc_binary(
+    name="appro_exp",
+    srcs=["experiments/approximation_exp.cpp"],
+    deps=[
+        ":exp",
+        ":advanced_adc_enum"
+    ]
+)
+
 cc_test(
     name="common_test",
     srcs=[

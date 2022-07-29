@@ -2,3 +2,4 @@
 bazel-*
 experiments/data/*
 experiments/tmp.csv
+appro_exp.*
