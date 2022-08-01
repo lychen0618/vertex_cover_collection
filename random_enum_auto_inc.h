@@ -3,12 +3,6 @@
 #include "random_enum.h"
 
 namespace vcc {
-float IncMaxmin(const std::vector<BitSet>& vc_list,
-                std::vector<std::vector<float>>& set_distances,
-                std::vector<int>& ans,
-                std::vector<float>& distances,
-                int cur_size);
-
 class AutoInc {
 public:
     AutoInc(int top_k);

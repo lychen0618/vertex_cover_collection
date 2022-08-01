@@ -36,8 +36,10 @@ void RandomEnum::RunDiverse() {
     }
     // fill output queue
     for (auto& vc : vc_list_) {
-        LOG(INFO) << "Get one vc: " << vc.ToString();
-        output_queue_->Push(IntSet(vc));
+        if (to_log_)
+            LOG(INFO) << "Get one vc: " << vc.ToString();
+        if (to_queue_)
+            output_queue_->Push(IntSet(vc));
     }
 }
 

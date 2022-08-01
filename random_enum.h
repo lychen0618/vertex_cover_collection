@@ -1,6 +1,7 @@
 #pragma once
 
 #include "mmcs.h"
+#include "common/maxmin.h"
 
 namespace vcc {
 class RandomEnum : public MMCS {
