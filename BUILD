@@ -60,6 +60,15 @@ cc_library(
 )
 
 cc_library(
+    name="sub_mmcs",
+    srcs=["sub_mmcs.cpp"],
+    hdrs=["sub_mmcs.h"],
+    deps=[
+        ":mmcs_set"
+    ]
+)
+
+cc_library(
     name="random_enum",
     srcs=["random_enum.cpp"],
     hdrs=["random_enum.h"],

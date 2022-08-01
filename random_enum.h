@@ -1,7 +1,7 @@
 #pragma once
 
-#include "mmcs.h"
 #include "common/maxmin.h"
+#include "mmcs.h"
 
 namespace vcc {
 class RandomEnum : public MMCS {
@@ -13,6 +13,8 @@ public:
     ~RandomEnum() = default;
 
     void RunDiverse() override;
+
+    std::vector<BitSet>& GetResult() { return vc_list_; }
 
 protected:
     virtual void UpdateStopFlag() {
