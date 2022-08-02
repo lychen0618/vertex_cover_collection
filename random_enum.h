@@ -1,5 +1,6 @@
 #pragma once
 
+#include <utility>
 #include "common/maxmin.h"
 #include "mmcs.h"
 
@@ -16,6 +17,10 @@ public:
 
     std::vector<BitSet>& GetResult() { return vc_list_; }
 
+    void SetBackMethod(bool is_certain, double para) {
+        back_method_ = {is_certain, para};
+    }
+
 protected:
     virtual void UpdateStopFlag() {
         stop_flag_ = (cover_index_ == required_number_of_vc_);
@@ -31,6 +36,7 @@ protected:
     bool is_auto_inc_;
     std::vector<int> cur_list_;
     std::vector<BitSet> vc_list_;
+    std::pair<bool, double> back_method_ = {true, 1};
 
 private:
     std::unique_ptr<RandomGenerator> ran_gen_for_mess_;

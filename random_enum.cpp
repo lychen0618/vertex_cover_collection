@@ -59,7 +59,13 @@ void RandomEnum::RunDiverse_(std::shared_ptr<BitSet> cand,
             stop_flag_ = true;
         }
         // different choices
-        back_steps_ = cur_->Count();
+        if (back_method_.first)
+            back_steps_ = cur_->Count();
+        else {
+            int max_step =
+                static_cast<int>(back_method_.second * cur_->Count());
+            back_steps_ = ran_gen_for_back_->RandomInt() % max_step;
+        }
         return;
     }
     std::shared_ptr<BitSet> cand_copy = std::make_shared<BitSet>(*cand);
@@ -143,7 +149,13 @@ void RandomEnum::RunDiverse_(std::shared_ptr<BitSet> cand,
             cur_list_ = old_cur_list;
             uncov_.reset(old_uncov.release());
             if (cur_->Count() != 0) {
-                back_steps_ = cur_->Count() + 1;
+                if (back_method_.first)
+                    back_steps_ = cur_->Count() + 1;
+                else {
+                    int max_step = static_cast<int>(back_method_.second *
+                                                    (cur_->Count() + 1));
+                    back_steps_ = ran_gen_for_back_->RandomInt() % max_step;
+                }
             }
         }
     }
