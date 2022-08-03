@@ -117,13 +117,24 @@ cc_binary(
     ]
 )
 
+# cc_binary(
+#     name="diversity_exp",
+#     srcs=["experiments/diversity_exp.cpp"],
+#     deps=[
+#         ":exp",
+#         ":random_enum_auto_inc",
+#         ":sub_mmcs"
+#     ]
+# )
+
 cc_test(
     name="common_test",
     srcs=[
         "test/intset_test.cpp",
         "test/hypergraph_test.cpp",
         "test/concurrent_drop_head_queue_test.cpp",
-        "test/thread_pool_test.cpp"
+        "test/thread_pool_test.cpp",
+        "test/maxmin_test.cpp"
     ],
     deps=[
         ":common",

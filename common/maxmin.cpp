@@ -10,6 +10,7 @@ float IncMaxmin(const std::vector<BitSet>& vc_list,
                 std::vector<float>& distances,
                 int cur_size) {
     int size = static_cast<int>(vc_list.size());
+    int top_k = static_cast<int>(ans.size());
     if (cur_size == 0) {
         float max_dis = -1;
         int first = 0, second = 0;
@@ -29,7 +30,7 @@ float IncMaxmin(const std::vector<BitSet>& vc_list,
     }
     // Inc compute
     std::unordered_set<int> res(ans.begin(), ans.begin() + cur_size);
-    while (cur_size < size) {
+    while (cur_size < top_k) {
         float max_dis = -1;
         int pos = 0;
         for (int i = 0; i < size; ++i) {
@@ -53,17 +54,17 @@ float IncMaxmin(const std::vector<BitSet>& vc_list,
     float total_dis = 0, min_dis = 2, max_dis = -1;
     int num = 0;
     std::vector<int> res_list(res.begin(), res.end());
-    for (int i = 0; i < size; ++i) {
-        for (int j = i + 1; j < size; ++j) {
+    for (int i = 0; i < top_k; ++i) {
+        for (int j = i + 1; j < top_k; ++j) {
             num++;
-            float distance = set_distances[i][j];
+            float distance = set_distances[res_list[i]][res_list[j]];
             total_dis += distance;
             min_dis = std::min(min_dis, distance);
             max_dis = std::max(max_dis, distance);
         }
     }
-    LOG(INFO) << "maxmin info(max/min/avg): " << std::setprecision(3)
-              << max_dis << "/" << min_dis << "/" << (total_dis / num);
+    LOG(INFO) << "maxmin info(max/min/avg): " << std::setprecision(3) << max_dis
+              << "/" << min_dis << "/" << (total_dis / num);
     return min_dis;
 }
 
@@ -81,6 +82,6 @@ float Maxmin(const std::vector<BitSet>& vc_list, int top_k) {
     // call incmaxmin
     std::vector<int> ans(top_k);
     std::vector<float> distances(top_k);
-    IncMaxmin(vc_list, set_distances, ans, distances, 0);
+    return IncMaxmin(vc_list, set_distances, ans, distances, 0);
 }
 }  // namespace vcc
