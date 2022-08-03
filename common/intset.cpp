@@ -18,11 +18,9 @@ IntSet IntSet::And(const IntSet& a, const IntSet& b) {
 
 BitSet IntSet::And(const BitSet& a, const IntSet& b) {
     BitSet new_set;
-    std::unordered_set<int> b_set(b.Get().begin(), b.Get().end());
-    for (const int& e : a.Get()) {
-        if (b_set.count(e)) {
+    for (const int& e : b.Get()) {
+        if (a.Get(e))
             new_set.Flip(e);
-        }
     }
     return std::move(new_set);
 }
@@ -42,8 +40,8 @@ IntSet IntSet::Or(const IntSet& a, const IntSet& b) {
     return std::move(new_set);
 }
 
-void IntSet::Or(BitSet& a, const IntSet& b){
-    for(const int& e : b.Get()){
+void IntSet::Or(BitSet& a, const IntSet& b) {
+    for (const int& e : b.Get()) {
         a.Set(e);
     }
 }

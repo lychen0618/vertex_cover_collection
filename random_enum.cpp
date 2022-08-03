@@ -63,7 +63,7 @@ void RandomEnum::RunDiverse_(std::shared_ptr<BitSet> cand,
             back_steps_ = cur_->Count();
         else {
             int max_step =
-                static_cast<int>(back_method_.second * cur_->Count());
+                std::max(1, static_cast<int>(back_method_.second * cur_->Count()));
             back_steps_ = ran_gen_for_back_->RandomInt() % max_step;
         }
         return;
@@ -84,8 +84,8 @@ void RandomEnum::RunDiverse_(std::shared_ptr<BitSet> cand,
     for (int v : messed_c) {
         if (back_steps_ != 0)
             return;
-        flag = true;
         if (!VertexWouldViolate(crit, v)) {
+            flag = true;
             std::shared_ptr<IntSetVector> crit_clone =
                 std::make_shared<IntSetVector>(*crit);
             UpdateCritAndUncov(crit_clone, hyper_graph_->GetVertexHitting(v));
@@ -152,8 +152,8 @@ void RandomEnum::RunDiverse_(std::shared_ptr<BitSet> cand,
                 if (back_method_.first)
                     back_steps_ = cur_->Count() + 1;
                 else {
-                    int max_step = static_cast<int>(back_method_.second *
-                                                    (cur_->Count() + 1));
+                    int max_step = std::max(1, static_cast<int>(back_method_.second *
+                                                    (cur_->Count() + 1)));
                     back_steps_ = ran_gen_for_back_->RandomInt() % max_step;
                 }
             }
