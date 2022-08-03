@@ -18,7 +18,7 @@ public:
         RunDiverse_(cand, crit);
     }
 
-    std::vector<BitSet> GetResult() { return vc_list_; }
+    std::vector<BitSet>& GetResult() { return vc_list_; }
 
 private:
     void RunDiverse_(std::shared_ptr<BitSet> cand,

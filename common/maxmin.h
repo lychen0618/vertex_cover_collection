@@ -9,6 +9,6 @@ float IncMaxmin(const std::vector<BitSet>& vc_list,
                 std::vector<float>& distances,
                 int cur_size);
 
-float Maxmin(const std::vector<BitSet>& vc_list);
+float Maxmin(const std::vector<BitSet>& vc_list, int top_k);
 
 }  // namespace vcc
