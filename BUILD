@@ -117,15 +117,15 @@ cc_binary(
     ]
 )
 
-# cc_binary(
-#     name="diversity_exp",
-#     srcs=["experiments/diversity_exp.cpp"],
-#     deps=[
-#         ":exp",
-#         ":random_enum_auto_inc",
-#         ":sub_mmcs"
-#     ]
-# )
+cc_binary(
+    name="diversity_exp",
+    srcs=["experiments/diversity_exp.cpp"],
+    deps=[
+        ":exp",
+        ":random_enum_auto_inc",
+        ":sub_mmcs"
+    ]
+)
 
 cc_test(
     name="common_test",
