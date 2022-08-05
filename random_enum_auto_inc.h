@@ -27,7 +27,7 @@ private:
     std::vector<float> distances_;
     int validate_success_time_ = 0;
     const int max_validate_success_time_ = 5;
-    const int max_num_of_vc_ = 2000;
+    const int max_num_of_vc_ = 125;
 };
 
 class RandomEnumAutoInc : public RandomEnum {

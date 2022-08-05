@@ -112,10 +112,13 @@ void RandomEnumAutoInc::RunDiverse() {
         if (stop_flag_)
             break;
     }
+    LOG(INFO) << "total/top_k: " << vc_list_.size() << "/" << required_number_of_vc_;
     // fill output queue
     for (auto& vc_id : auto_inc_.GetTopKAns()) {
-        LOG(INFO) << "Get one vc: " << vc_list_[vc_id].ToString();
-        output_queue_->Push(IntSet(vc_list_[vc_id]));
+        if (to_log_)
+            LOG(INFO) << "Get one vc: " << vc_list_[vc_id].ToString();
+        if (to_queue_)
+            output_queue_->Push(IntSet(vc_list_[vc_id]));
     }
 }
 
