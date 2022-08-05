@@ -20,8 +20,8 @@ cc_library(
     ],
     deps=[
         "@com_github_google_glog//:glog",
-        "@boost//:thread",
-        "@boost//:asio"
+        # "@boost//:thread",
+        # "@boost//:asio"
     ]
 )
 
@@ -101,10 +101,14 @@ cc_library(
     name="exp",
     srcs=["experiments/exp_framework.cpp"],
     hdrs=["experiments/exp_framework.h"],
+    linkopts=[ 
+        "-l/usr/local/lib/libboost_filesystem.so",
+        "-l/usr/local/lib/libboost_system.so"
+    ],
     deps=[
         ":common",
-        "@boost//:filesystem",
-        "@boost//:algorithm"
+        # "@boost//:filesystem",
+        # "@boost//:algorithm"
     ]
 )
 

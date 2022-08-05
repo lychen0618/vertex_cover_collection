@@ -8,7 +8,7 @@
 
 namespace exps {
 const std::string data_base_dir =
-    "/home/lishuai.0613/projects/build_mmcs/vertex_cover_collection/"
+    "/home/ubuntu/build_vcc/vertex_cover_collection/"
     "experiments/data";
 using Func = std::function<void(std::shared_ptr<vcc::HyperGraph> hg)>;
 
