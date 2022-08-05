@@ -1,0 +1,86 @@
+Log file created at: 2022/08/03 17:34:45
+Running on machine: n248-165-217
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20220803 17:34:45.167641 672932 approximation_exp.cpp:77] Round - 1
+I20220803 17:34:45.168053 672932 approximation_exp.cpp:80] Theta - 0.05
+I20220803 17:34:45.168078 672932 approximation_exp.cpp:81] Run ADCEnum
+I20220803 17:34:45.168082 672932 exp_framework.cpp:14] #### Process Dataset - hospital_evidence ####
+I20220803 17:34:45.168125 672932 exp_framework.cpp:19] ## Process File - "v30_e513.txt" ##
+I20220803 17:34:45.176538 672932 exp_framework.cpp:34] vertex: 30 edge: 513
+I20220803 17:40:40.186158 672932 approximation_exp.cpp:17] vertex cover num: 5273
+I20220803 17:40:40.186348 672932 exp_framework.cpp:39] time cost: 355s
+I20220803 17:40:40.186702 672932 exp_framework.cpp:19] ## Process File - "v30_e307.txt" ##
+I20220803 17:40:40.191561 672932 exp_framework.cpp:34] vertex: 30 edge: 307
+I20220803 17:44:17.804098 672932 approximation_exp.cpp:17] vertex cover num: 5140
+I20220803 17:44:17.804205 672932 exp_framework.cpp:39] time cost: 217s
+I20220803 17:44:17.804345 672932 exp_framework.cpp:19] ## Process File - "v30_e410.txt" ##
+I20220803 17:44:17.810674 672932 exp_framework.cpp:34] vertex: 30 edge: 410
+I20220803 17:49:04.428016 672932 approximation_exp.cpp:17] vertex cover num: 5231
+I20220803 17:49:04.428180 672932 exp_framework.cpp:39] time cost: 286s
+I20220803 17:49:04.428377 672932 exp_framework.cpp:19] ## Process File - "v30_e205.txt" ##
+I20220803 17:49:04.431557 672932 exp_framework.cpp:34] vertex: 30 edge: 205
+I20220803 17:51:41.556105 672932 approximation_exp.cpp:17] vertex cover num: 4810
+I20220803 17:51:41.556227 672932 exp_framework.cpp:39] time cost: 157s
+I20220803 17:51:41.556424 672932 exp_framework.cpp:19] ## Process File - "v29_e102.txt" ##
+I20220803 17:51:41.558061 672932 exp_framework.cpp:34] vertex: 29 edge: 102
+I20220803 17:52:53.180786 672932 approximation_exp.cpp:17] vertex cover num: 3374
+I20220803 17:52:53.180892 672932 exp_framework.cpp:39] time cost: 71s
+I20220803 17:52:53.180958 672932 approximation_exp.cpp:83] Run AdvancedADCEnum - Exp3
+I20220803 17:52:53.180964 672932 exp_framework.cpp:14] #### Process Dataset - hospital_evidence ####
+I20220803 17:52:53.181037 672932 exp_framework.cpp:19] ## Process File - "v30_e513.txt" ##
+I20220803 17:52:53.189268 672932 exp_framework.cpp:34] vertex: 30 edge: 513
+I20220803 17:55:40.805644 672932 exp_framework.cpp:39] time cost: 167s
+I20220803 17:55:40.806088 672932 exp_framework.cpp:19] ## Process File - "v30_e307.txt" ##
+I20220803 17:55:40.811090 672932 exp_framework.cpp:34] vertex: 30 edge: 307
+I20220803 17:57:12.867489 672932 exp_framework.cpp:39] time cost: 92s
+I20220803 17:57:12.867805 672932 exp_framework.cpp:19] ## Process File - "v30_e410.txt" ##
+I20220803 17:57:12.874382 672932 exp_framework.cpp:34] vertex: 30 edge: 410
+I20220803 17:59:21.185725 672932 exp_framework.cpp:39] time cost: 128s
+I20220803 17:59:21.186072 672932 exp_framework.cpp:19] ## Process File - "v30_e205.txt" ##
+I20220803 17:59:21.189410 672932 exp_framework.cpp:34] vertex: 30 edge: 205
+I20220803 18:00:37.903517 672932 exp_framework.cpp:39] time cost: 76s
+I20220803 18:00:37.903774 672932 exp_framework.cpp:19] ## Process File - "v29_e102.txt" ##
+I20220803 18:00:37.905488 672932 exp_framework.cpp:34] vertex: 29 edge: 102
+I20220803 18:01:12.691401 672932 exp_framework.cpp:39] time cost: 34s
+I20220803 18:01:12.691545 672932 approximation_exp.cpp:77] Round - 2
+I20220803 18:01:12.691555 672932 approximation_exp.cpp:80] Theta - 0.05
+I20220803 18:01:12.691576 672932 approximation_exp.cpp:81] Run ADCEnum
+I20220803 18:01:12.691579 672932 exp_framework.cpp:14] #### Process Dataset - random_base ####
+I20220803 18:01:12.691624 672932 exp_framework.cpp:19] ## Process File - "p5_1000.dat" ##
+I20220803 18:01:12.716743 672932 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 22:30:19.976488 672932 approximation_exp.cpp:17] vertex cover num: 1378570
+I20220803 22:30:19.976666 672932 exp_framework.cpp:39] time cost: 16147s
+I20220803 22:30:19.977357 672932 exp_framework.cpp:19] ## Process File - "p7_1000.dat" ##
+I20220803 22:30:20.009378 672932 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 22:32:39.192319 672932 approximation_exp.cpp:17] vertex cover num: 19600
+I20220803 22:32:39.192675 672932 exp_framework.cpp:39] time cost: 139s
+I20220803 22:32:39.193531 672932 exp_framework.cpp:19] ## Process File - "p6_1000.dat" ##
+I20220803 22:32:39.222784 672932 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 23:00:25.359397 672932 approximation_exp.cpp:17] vertex cover num: 199949
+I20220803 23:00:25.359820 672932 exp_framework.cpp:39] time cost: 1666s
+I20220803 23:00:25.360725 672932 exp_framework.cpp:19] ## Process File - "p9_1000.dat" ##
+I20220803 23:00:25.399907 672932 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 23:00:31.371526 672932 approximation_exp.cpp:17] vertex cover num: 1225
+I20220803 23:00:31.371556 672932 exp_framework.cpp:39] time cost: 5s
+I20220803 23:00:31.371982 672932 exp_framework.cpp:19] ## Process File - "p8_1000.dat" ##
+I20220803 23:00:31.406889 672932 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 23:00:48.162820 672932 approximation_exp.cpp:17] vertex cover num: 1169
+I20220803 23:00:48.162860 672932 exp_framework.cpp:39] time cost: 16s
+I20220803 23:00:48.163321 672932 approximation_exp.cpp:83] Run AdvancedADCEnum - Exp3
+I20220803 23:00:48.163336 672932 exp_framework.cpp:14] #### Process Dataset - random_base ####
+I20220803 23:00:48.163417 672932 exp_framework.cpp:19] ## Process File - "p5_1000.dat" ##
+I20220803 23:00:48.187155 672932 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220804 01:40:24.164094 672932 exp_framework.cpp:39] time cost: 9575s
+I20220804 01:40:24.165148 672932 exp_framework.cpp:19] ## Process File - "p7_1000.dat" ##
+I20220804 01:40:24.198372 672932 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220804 01:42:03.950040 672932 exp_framework.cpp:39] time cost: 99s
+I20220804 01:42:03.950711 672932 exp_framework.cpp:19] ## Process File - "p6_1000.dat" ##
+I20220804 01:42:03.978435 672932 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220804 02:00:08.223527 672932 exp_framework.cpp:39] time cost: 1084s
+I20220804 02:00:08.224537 672932 exp_framework.cpp:19] ## Process File - "p9_1000.dat" ##
+I20220804 02:00:08.263476 672932 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220804 02:00:13.988705 672932 exp_framework.cpp:39] time cost: 5s
+I20220804 02:00:13.989151 672932 exp_framework.cpp:19] ## Process File - "p8_1000.dat" ##
+I20220804 02:00:14.024395 672932 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220804 02:00:27.076488 672932 exp_framework.cpp:39] time cost: 13s

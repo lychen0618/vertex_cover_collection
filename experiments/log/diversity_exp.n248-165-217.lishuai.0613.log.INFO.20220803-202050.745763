@@ -1,0 +1,140 @@
+Log file created at: 2022/08/03 20:20:50
+Running on machine: n248-165-217
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20220803 20:20:50.862344 745763 diversity_exp.cpp:47] Round - 1
+I20220803 20:20:50.862644 745763 diversity_exp.cpp:48] Run SubMMCS
+I20220803 20:20:50.862650 745763 diversity_exp.cpp:50] Threshold - 0.1
+I20220803 20:20:50.862668 745763 exp_framework.cpp:14] #### Process Dataset - match_base ####
+I20220803 20:20:50.862700 745763 exp_framework.cpp:19] ## Process File - "matching20.dat" ##
+I20220803 20:20:50.863917 745763 exp_framework.cpp:34] vertex: 20 edge: 10
+I20220803 20:20:51.167711 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.667/0.182/0.392
+I20220803 20:20:51.167778 745763 exp_framework.cpp:39] time cost: 0s
+I20220803 20:20:51.167834 745763 exp_framework.cpp:19] ## Process File - "matching30.dat" ##
+I20220803 20:20:51.168998 745763 exp_framework.cpp:34] vertex: 30 edge: 15
+I20220803 20:20:51.515895 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.5/0.125/0.282
+I20220803 20:20:51.515954 745763 exp_framework.cpp:39] time cost: 0s
+I20220803 20:20:51.516003 745763 exp_framework.cpp:19] ## Process File - "matching28.dat" ##
+I20220803 20:20:51.517247 745763 exp_framework.cpp:34] vertex: 28 edge: 14
+I20220803 20:20:51.853466 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.526/0.133/0.298
+I20220803 20:20:51.853523 745763 exp_framework.cpp:39] time cost: 0s
+I20220803 20:20:51.853564 745763 exp_framework.cpp:19] ## Process File - "matching32.dat" ##
+I20220803 20:20:51.853703 745763 exp_framework.cpp:34] vertex: 32 edge: 16
+I20220803 20:20:52.207913 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.476/0.118/0.267
+I20220803 20:20:52.207967 745763 exp_framework.cpp:39] time cost: 0s
+I20220803 20:20:52.208006 745763 exp_framework.cpp:19] ## Process File - "matching24.dat" ##
+I20220803 20:20:52.209309 745763 exp_framework.cpp:34] vertex: 24 edge: 12
+I20220803 20:20:52.529152 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.588/0.154/0.339
+I20220803 20:20:52.529206 745763 exp_framework.cpp:39] time cost: 0s
+I20220803 20:20:52.529264 745763 diversity_exp.cpp:50] Threshold - 0.5
+I20220803 20:20:52.529268 745763 exp_framework.cpp:14] #### Process Dataset - match_base ####
+I20220803 20:20:52.529335 745763 exp_framework.cpp:19] ## Process File - "matching20.dat" ##
+I20220803 20:20:52.529421 745763 exp_framework.cpp:34] vertex: 20 edge: 10
+I20220803 20:20:53.696345 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.889/0.182/0.545
+I20220803 20:20:53.696395 745763 exp_framework.cpp:39] time cost: 1s
+I20220803 20:20:53.696432 745763 exp_framework.cpp:19] ## Process File - "matching30.dat" ##
+I20220803 20:20:53.696561 745763 exp_framework.cpp:34] vertex: 30 edge: 15
+I20220803 20:20:55.934228 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.75/0.125/0.442
+I20220803 20:20:55.934286 745763 exp_framework.cpp:39] time cost: 2s
+I20220803 20:20:55.934334 745763 exp_framework.cpp:19] ## Process File - "matching28.dat" ##
+I20220803 20:20:55.934459 745763 exp_framework.cpp:34] vertex: 28 edge: 14
+I20220803 20:20:58.130142 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.783/0.133/0.464
+I20220803 20:20:58.130195 745763 exp_framework.cpp:39] time cost: 2s
+I20220803 20:20:58.130232 745763 exp_framework.cpp:19] ## Process File - "matching32.dat" ##
+I20220803 20:20:58.130380 745763 exp_framework.cpp:34] vertex: 32 edge: 16
+I20220803 20:21:02.464664 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.769/0.118/0.452
+I20220803 20:21:02.464720 745763 exp_framework.cpp:39] time cost: 4s
+I20220803 20:21:02.464762 745763 exp_framework.cpp:19] ## Process File - "matching24.dat" ##
+I20220803 20:21:02.464875 745763 exp_framework.cpp:34] vertex: 24 edge: 12
+I20220803 20:21:03.647163 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.8/0.154/0.48
+I20220803 20:21:03.647215 745763 exp_framework.cpp:39] time cost: 1s
+I20220803 20:21:03.647260 745763 diversity_exp.cpp:50] Threshold - 0.75
+I20220803 20:21:03.647265 745763 exp_framework.cpp:14] #### Process Dataset - match_base ####
+I20220803 20:21:03.647331 745763 exp_framework.cpp:19] ## Process File - "matching20.dat" ##
+I20220803 20:21:03.647418 745763 exp_framework.cpp:34] vertex: 20 edge: 10
+I20220803 20:21:07.786161 745763 maxmin.cpp:66] maxmin info(max/min/avg): 1/0.182/0.619
+I20220803 20:21:07.786314 745763 exp_framework.cpp:39] time cost: 4s
+I20220803 20:21:07.786357 745763 exp_framework.cpp:19] ## Process File - "matching30.dat" ##
+I20220803 20:21:07.786474 745763 exp_framework.cpp:34] vertex: 30 edge: 15
+I20220803 20:21:39.925806 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.929/0.125/0.552
+I20220803 20:21:39.925915 745763 exp_framework.cpp:39] time cost: 32s
+I20220803 20:21:39.925957 745763 exp_framework.cpp:19] ## Process File - "matching28.dat" ##
+I20220803 20:21:39.926088 745763 exp_framework.cpp:34] vertex: 28 edge: 14
+I20220803 20:22:12.081303 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.963/0.133/0.577
+I20220803 20:22:12.081403 745763 exp_framework.cpp:39] time cost: 32s
+I20220803 20:22:12.081444 745763 exp_framework.cpp:19] ## Process File - "matching32.dat" ##
+I20220803 20:22:12.081573 745763 exp_framework.cpp:34] vertex: 32 edge: 16
+I20220803 20:23:16.358633 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.933/0.118/0.552
+I20220803 20:23:16.358728 745763 exp_framework.cpp:39] time cost: 64s
+I20220803 20:23:16.358767 745763 exp_framework.cpp:19] ## Process File - "matching24.dat" ##
+I20220803 20:23:16.358870 745763 exp_framework.cpp:34] vertex: 24 edge: 12
+I20220803 20:23:32.418313 745763 maxmin.cpp:66] maxmin info(max/min/avg): 1/0.154/0.608
+I20220803 20:23:32.418361 745763 exp_framework.cpp:39] time cost: 16s
+I20220803 20:23:32.418402 745763 diversity_exp.cpp:47] Round - 2
+I20220803 20:23:32.418406 745763 diversity_exp.cpp:48] Run SubMMCS
+I20220803 20:23:32.418407 745763 diversity_exp.cpp:50] Threshold - 0.1
+I20220803 20:23:32.418411 745763 exp_framework.cpp:14] #### Process Dataset - random_base ####
+I20220803 20:23:32.418469 745763 exp_framework.cpp:19] ## Process File - "p5_1000.dat" ##
+I20220803 20:23:32.442289 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:23:33.436395 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.714/0.2/0.393
+I20220803 20:23:33.436466 745763 exp_framework.cpp:39] time cost: 0s
+I20220803 20:23:33.436787 745763 exp_framework.cpp:19] ## Process File - "p7_1000.dat" ##
+I20220803 20:23:33.468271 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:23:34.011202 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.667/0.286/0.488
+I20220803 20:23:34.011273 745763 exp_framework.cpp:39] time cost: 0s
+I20220803 20:23:34.011693 745763 exp_framework.cpp:19] ## Process File - "p6_1000.dat" ##
+I20220803 20:23:34.039055 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:23:34.794271 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.75/0.25/0.459
+I20220803 20:23:34.794324 745763 exp_framework.cpp:39] time cost: 0s
+I20220803 20:23:34.794697 745763 exp_framework.cpp:19] ## Process File - "p9_1000.dat" ##
+I20220803 20:23:34.833285 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:23:35.645668 745763 maxmin.cpp:66] maxmin info(max/min/avg): 1/0.4/0.732
+I20220803 20:23:35.645723 745763 exp_framework.cpp:39] time cost: 0s
+I20220803 20:23:35.646126 745763 exp_framework.cpp:19] ## Process File - "p8_1000.dat" ##
+I20220803 20:23:35.681777 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:23:36.167924 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.875/0.333/0.617
+I20220803 20:23:36.167979 745763 exp_framework.cpp:39] time cost: 0s
+I20220803 20:23:36.168449 745763 diversity_exp.cpp:50] Threshold - 0.5
+I20220803 20:23:36.168465 745763 exp_framework.cpp:14] #### Process Dataset - random_base ####
+I20220803 20:23:36.168515 745763 exp_framework.cpp:19] ## Process File - "p5_1000.dat" ##
+I20220803 20:23:36.192492 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:23:39.169405 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.786/0.2/0.515
+I20220803 20:23:39.169472 745763 exp_framework.cpp:39] time cost: 2s
+I20220803 20:23:39.169797 745763 exp_framework.cpp:19] ## Process File - "p7_1000.dat" ##
+I20220803 20:23:39.201377 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:23:40.306351 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.818/0.25/0.596
+I20220803 20:23:40.306402 745763 exp_framework.cpp:39] time cost: 1s
+I20220803 20:23:40.306789 745763 exp_framework.cpp:19] ## Process File - "p6_1000.dat" ##
+I20220803 20:23:40.334048 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:23:42.039039 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.833/0.25/0.564
+I20220803 20:23:42.039093 745763 exp_framework.cpp:39] time cost: 1s
+I20220803 20:23:42.039498 745763 exp_framework.cpp:19] ## Process File - "p9_1000.dat" ##
+I20220803 20:23:42.077780 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:23:42.953255 745763 maxmin.cpp:66] maxmin info(max/min/avg): 1/0.4/0.746
+I20220803 20:23:42.953317 745763 exp_framework.cpp:39] time cost: 0s
+I20220803 20:23:42.953719 745763 exp_framework.cpp:19] ## Process File - "p8_1000.dat" ##
+I20220803 20:23:42.988986 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:23:43.672590 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.889/0.333/0.659
+I20220803 20:23:43.672641 745763 exp_framework.cpp:39] time cost: 0s
+I20220803 20:23:43.673103 745763 diversity_exp.cpp:50] Threshold - 0.75
+I20220803 20:23:43.673117 745763 exp_framework.cpp:14] #### Process Dataset - random_base ####
+I20220803 20:23:43.673171 745763 exp_framework.cpp:19] ## Process File - "p5_1000.dat" ##
+I20220803 20:23:43.696882 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:24:50.735328 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.875/0.2/0.685
+I20220803 20:24:50.735512 745763 exp_framework.cpp:39] time cost: 67s
+I20220803 20:24:50.735903 745763 exp_framework.cpp:19] ## Process File - "p7_1000.dat" ##
+I20220803 20:24:50.767787 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:25:03.599453 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.917/0.286/0.713
+I20220803 20:25:03.599503 745763 exp_framework.cpp:39] time cost: 12s
+I20220803 20:25:03.599997 745763 exp_framework.cpp:19] ## Process File - "p6_1000.dat" ##
+I20220803 20:25:03.627575 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:25:18.742461 745763 maxmin.cpp:66] maxmin info(max/min/avg): 0.929/0.25/0.686
+I20220803 20:25:18.742512 745763 exp_framework.cpp:39] time cost: 15s
+I20220803 20:25:18.742887 745763 exp_framework.cpp:19] ## Process File - "p9_1000.dat" ##
+I20220803 20:25:18.781204 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:25:20.278023 745763 maxmin.cpp:66] maxmin info(max/min/avg): 1/0.5/0.817
+I20220803 20:25:20.278081 745763 exp_framework.cpp:39] time cost: 1s
+I20220803 20:25:20.278506 745763 exp_framework.cpp:19] ## Process File - "p8_1000.dat" ##
+I20220803 20:25:20.313876 745763 exp_framework.cpp:34] vertex: 50 edge: 1000
+I20220803 20:25:24.006031 745763 maxmin.cpp:66] maxmin info(max/min/avg): 1/0.333/0.777
+I20220803 20:25:24.006158 745763 exp_framework.cpp:39] time cost: 3s

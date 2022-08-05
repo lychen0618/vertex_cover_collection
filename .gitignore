@@ -1,7 +1,2 @@
-.vscode
 bazel-*
-experiments/data/*
 experiments/tmp.csv
-appro_exp.*
-diversity_exp.I*
-diversity_exp.n*

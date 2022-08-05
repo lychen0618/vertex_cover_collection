@@ -1,0 +1,22 @@
+Log file created at: 2022/08/01 13:26:53
+Running on machine: n248-165-217
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20220801 13:26:53.208169 2109929 approximation_exp.cpp:53] Round - 1
+I20220801 13:26:53.208664 2109929 approximation_exp.cpp:54] Run ADCEnum
+I20220801 13:26:53.208678 2109929 exp_framework.cpp:14] #### Process Dataset - match_base ####
+I20220801 13:26:53.208745 2109929 exp_framework.cpp:19] ## Process File - "matching20.dat" ##
+I20220801 13:26:53.208921 2109929 exp_framework.cpp:34] vertex: 20 edge: 10
+I20220801 13:27:18.743026 2109929 approximation_exp.cpp:16] vertex cover num: 5120
+I20220801 13:27:18.743065 2109929 exp_framework.cpp:39] time cost: 25s
+I20220801 13:27:18.743117 2109929 exp_framework.cpp:19] ## Process File - "matching28.dat" ##
+I20220801 13:27:18.743252 2109929 exp_framework.cpp:34] vertex: 28 edge: 14
+I20220801 13:37:13.638763 2109929 approximation_exp.cpp:16] vertex cover num: 114688
+I20220801 13:37:13.638908 2109929 exp_framework.cpp:39] time cost: 594s
+I20220801 13:37:13.638990 2109929 exp_framework.cpp:19] ## Process File - "matching32.dat" ##
+I20220801 13:37:13.639242 2109929 exp_framework.cpp:34] vertex: 32 edge: 16
+I20220801 14:23:10.052840 2109929 approximation_exp.cpp:16] vertex cover num: 524288
+I20220801 14:23:10.053071 2109929 exp_framework.cpp:39] time cost: 2756s
+I20220801 14:23:10.053174 2109929 exp_framework.cpp:19] ## Process File - "matching24.dat" ##
+I20220801 14:23:10.053373 2109929 exp_framework.cpp:34] vertex: 24 edge: 12
+I20220801 14:25:15.398802 2109929 approximation_exp.cpp:16] vertex cover num: 24576

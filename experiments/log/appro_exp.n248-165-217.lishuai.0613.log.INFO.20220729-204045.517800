@@ -1,0 +1,33 @@
+Log file created at: 2022/07/29 20:40:45
+Running on machine: n248-165-217
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20220729 20:40:45.774226 517800 approximation_exp.cpp:47] Round - 1
+I20220729 20:40:45.774580 517800 approximation_exp.cpp:48] Run ADCEnum
+I20220729 20:40:45.774593 517800 exp_framework.cpp:14] #### Process Dataset - hospital_evidence ####
+I20220729 20:40:45.774634 517800 exp_framework.cpp:19] ## Process File - "v30_e513.txt" ##
+I20220729 20:40:45.782922 517800 exp_framework.cpp:34] vertex: 30 edge: 513
+I20220729 20:43:47.324436 517800 approximation_exp.cpp:16] vertex cover num: 2352
+I20220729 20:43:47.324573 517800 exp_framework.cpp:39] time cost: 181s
+I20220729 20:43:47.324767 517800 exp_framework.cpp:19] ## Process File - "v30_e307.txt" ##
+I20220729 20:43:47.329613 517800 exp_framework.cpp:34] vertex: 30 edge: 307
+I20220729 20:45:44.959921 517800 approximation_exp.cpp:16] vertex cover num: 2396
+I20220729 20:45:44.960024 517800 exp_framework.cpp:39] time cost: 117s
+I20220729 20:45:44.960150 517800 exp_framework.cpp:19] ## Process File - "v30_e410.txt" ##
+I20220729 20:45:44.966539 517800 exp_framework.cpp:34] vertex: 30 edge: 410
+I20220729 20:48:12.833372 517800 approximation_exp.cpp:16] vertex cover num: 2260
+I20220729 20:48:12.833490 517800 exp_framework.cpp:39] time cost: 147s
+I20220729 20:48:12.833649 517800 exp_framework.cpp:19] ## Process File - "v30_e205.txt" ##
+I20220729 20:48:12.836880 517800 exp_framework.cpp:34] vertex: 30 edge: 205
+I20220729 20:49:38.792760 517800 approximation_exp.cpp:16] vertex cover num: 2432
+I20220729 20:49:38.792856 517800 exp_framework.cpp:39] time cost: 85s
+I20220729 20:49:38.792959 517800 exp_framework.cpp:19] ## Process File - "v29_e102.txt" ##
+I20220729 20:49:38.794590 517800 exp_framework.cpp:34] vertex: 29 edge: 102
+I20220729 20:50:20.365164 517800 approximation_exp.cpp:16] vertex cover num: 2006
+I20220729 20:50:20.365252 517800 exp_framework.cpp:39] time cost: 41s
+I20220729 20:50:20.365319 517800 approximation_exp.cpp:50] Run AdvancedADCEnum
+I20220729 20:50:20.365321 517800 approximation_exp.cpp:53] ThreadNum - 1
+I20220729 20:50:20.365324 517800 exp_framework.cpp:14] #### Process Dataset - hospital_evidence ####
+I20220729 20:50:20.365377 517800 exp_framework.cpp:19] ## Process File - "v30_e513.txt" ##
+I20220729 20:50:20.373482 517800 exp_framework.cpp:34] vertex: 30 edge: 513
+I20220729 20:53:23.499104 517800 exp_framework.cpp:39] time cost: 183s

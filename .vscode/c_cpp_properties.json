@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/bazel-vertex_cover_collection/external/**",
+                "/home/lishuai.0613/projects/build_mmcs/36bea6cc8fed0c3b05299138a976c3e1/execroot/vertex_cover_collection/bazel-out/k8-fastbuild/bin",
+                "/home/lishuai.0613/library/boost_1_79/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

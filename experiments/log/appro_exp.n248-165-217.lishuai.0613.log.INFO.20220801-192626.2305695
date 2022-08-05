@@ -1,0 +1,135 @@
+Log file created at: 2022/08/01 19:26:26
+Running on machine: n248-165-217
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20220801 19:26:26.731506 2305695 approximation_exp.cpp:53] Round - 1
+I20220801 19:26:26.731889 2305695 approximation_exp.cpp:54] Run ADCEnum
+I20220801 19:26:26.731896 2305695 exp_framework.cpp:14] #### Process Dataset - match_base ####
+I20220801 19:26:26.731962 2305695 exp_framework.cpp:19] ## Process File - "matching20.dat" ##
+I20220801 19:26:26.732102 2305695 exp_framework.cpp:34] vertex: 20 edge: 10
+I20220801 19:26:52.321283 2305695 approximation_exp.cpp:16] vertex cover num: 5120
+I20220801 19:26:52.321329 2305695 exp_framework.cpp:39] time cost: 25s
+I20220801 19:26:52.321398 2305695 exp_framework.cpp:19] ## Process File - "matching30.dat" ##
+I20220801 19:26:52.321565 2305695 exp_framework.cpp:34] vertex: 30 edge: 15
+I20220801 19:48:17.088321 2305695 approximation_exp.cpp:16] vertex cover num: 245760
+I20220801 19:48:17.088544 2305695 exp_framework.cpp:39] time cost: 1284s
+I20220801 19:48:17.088680 2305695 exp_framework.cpp:19] ## Process File - "matching28.dat" ##
+I20220801 19:48:17.088862 2305695 exp_framework.cpp:34] vertex: 28 edge: 14
+I20220801 19:58:12.471982 2305695 approximation_exp.cpp:16] vertex cover num: 114688
+I20220801 19:58:12.472138 2305695 exp_framework.cpp:39] time cost: 595s
+I20220801 19:58:12.472251 2305695 exp_framework.cpp:19] ## Process File - "matching32.dat" ##
+I20220801 19:58:12.472479 2305695 exp_framework.cpp:34] vertex: 32 edge: 16
+I20220801 20:44:10.231019 2305695 approximation_exp.cpp:16] vertex cover num: 524288
+I20220801 20:44:10.231245 2305695 exp_framework.cpp:39] time cost: 2757s
+I20220801 20:44:10.231385 2305695 exp_framework.cpp:19] ## Process File - "matching24.dat" ##
+I20220801 20:44:10.231622 2305695 exp_framework.cpp:34] vertex: 24 edge: 12
+I20220801 20:46:15.746522 2305695 approximation_exp.cpp:16] vertex cover num: 24576
+I20220801 20:46:15.746606 2305695 exp_framework.cpp:39] time cost: 125s
+I20220801 20:46:15.746668 2305695 approximation_exp.cpp:56] Run AdvancedADCEnum - Exp1
+I20220801 20:46:15.746672 2305695 approximation_exp.cpp:59] ThreadNum - 0
+I20220801 20:46:15.746676 2305695 exp_framework.cpp:14] #### Process Dataset - match_base ####
+I20220801 20:46:15.746790 2305695 exp_framework.cpp:19] ## Process File - "matching20.dat" ##
+I20220801 20:46:15.746882 2305695 exp_framework.cpp:34] vertex: 20 edge: 10
+I20220801 20:46:41.306401 2305695 exp_framework.cpp:39] time cost: 25s
+I20220801 20:46:41.306463 2305695 exp_framework.cpp:19] ## Process File - "matching30.dat" ##
+I20220801 20:46:41.306613 2305695 exp_framework.cpp:34] vertex: 30 edge: 15
+I20220801 21:08:06.602074 2305695 exp_framework.cpp:39] time cost: 1285s
+I20220801 21:08:06.602397 2305695 exp_framework.cpp:19] ## Process File - "matching28.dat" ##
+I20220801 21:08:06.602612 2305695 exp_framework.cpp:34] vertex: 28 edge: 14
+I20220801 21:18:02.177121 2305695 exp_framework.cpp:39] time cost: 595s
+I20220801 21:18:02.177371 2305695 exp_framework.cpp:19] ## Process File - "matching32.dat" ##
+I20220801 21:18:02.177577 2305695 exp_framework.cpp:34] vertex: 32 edge: 16
+I20220801 22:04:00.927150 2305695 exp_framework.cpp:39] time cost: 2758s
+I20220801 22:04:00.927443 2305695 exp_framework.cpp:19] ## Process File - "matching24.dat" ##
+I20220801 22:04:00.927604 2305695 exp_framework.cpp:34] vertex: 24 edge: 12
+I20220801 22:06:06.379976 2305695 exp_framework.cpp:39] time cost: 125s
+I20220801 22:06:06.380115 2305695 approximation_exp.cpp:59] ThreadNum - 1
+I20220801 22:06:06.380124 2305695 exp_framework.cpp:14] #### Process Dataset - match_base ####
+I20220801 22:06:06.380192 2305695 exp_framework.cpp:19] ## Process File - "matching20.dat" ##
+I20220801 22:06:06.380291 2305695 exp_framework.cpp:34] vertex: 20 edge: 10
+I20220801 22:06:19.859747 2305695 exp_framework.cpp:39] time cost: 13s
+I20220801 22:06:19.859840 2305695 exp_framework.cpp:19] ## Process File - "matching30.dat" ##
+I20220801 22:06:19.859998 2305695 exp_framework.cpp:34] vertex: 30 edge: 15
+I20220801 22:17:47.888224 2305695 exp_framework.cpp:39] time cost: 688s
+I20220801 22:17:47.888572 2305695 exp_framework.cpp:19] ## Process File - "matching28.dat" ##
+I20220801 22:17:47.888725 2305695 exp_framework.cpp:34] vertex: 28 edge: 14
+I20220801 22:23:05.372860 2305695 exp_framework.cpp:39] time cost: 317s
+I20220801 22:23:05.373131 2305695 exp_framework.cpp:19] ## Process File - "matching32.dat" ##
+I20220801 22:23:05.373301 2305695 exp_framework.cpp:34] vertex: 32 edge: 16
+I20220801 22:47:46.701758 2305695 exp_framework.cpp:39] time cost: 1481s
+I20220801 22:47:46.702042 2305695 exp_framework.cpp:19] ## Process File - "matching24.dat" ##
+I20220801 22:47:46.702178 2305695 exp_framework.cpp:34] vertex: 24 edge: 12
+I20220801 22:48:52.372812 2305695 exp_framework.cpp:39] time cost: 65s
+I20220801 22:48:52.373042 2305695 approximation_exp.cpp:59] ThreadNum - 2
+I20220801 22:48:52.373054 2305695 exp_framework.cpp:14] #### Process Dataset - match_base ####
+I20220801 22:48:52.373165 2305695 exp_framework.cpp:19] ## Process File - "matching20.dat" ##
+I20220801 22:48:52.373271 2305695 exp_framework.cpp:34] vertex: 20 edge: 10
+I20220801 22:49:01.998543 2305695 exp_framework.cpp:39] time cost: 9s
+I20220801 22:49:01.998598 2305695 exp_framework.cpp:19] ## Process File - "matching30.dat" ##
+I20220801 22:49:01.998742 2305695 exp_framework.cpp:34] vertex: 30 edge: 15
+I20220801 22:57:30.141604 2305695 exp_framework.cpp:39] time cost: 508s
+I20220801 22:57:30.141954 2305695 exp_framework.cpp:19] ## Process File - "matching28.dat" ##
+I20220801 22:57:30.142139 2305695 exp_framework.cpp:34] vertex: 28 edge: 14
+I20220801 23:01:23.398036 2305695 exp_framework.cpp:39] time cost: 233s
+I20220801 23:01:23.398284 2305695 exp_framework.cpp:19] ## Process File - "matching32.dat" ##
+I20220801 23:01:23.398512 2305695 exp_framework.cpp:34] vertex: 32 edge: 16
+I20220801 23:19:52.101476 2305695 exp_framework.cpp:39] time cost: 1108s
+I20220801 23:19:52.101826 2305695 exp_framework.cpp:19] ## Process File - "matching24.dat" ##
+I20220801 23:19:52.102016 2305695 exp_framework.cpp:34] vertex: 24 edge: 12
+I20220801 23:20:40.235010 2305695 exp_framework.cpp:39] time cost: 48s
+I20220801 23:20:40.235178 2305695 approximation_exp.cpp:59] ThreadNum - 4
+I20220801 23:20:40.235189 2305695 exp_framework.cpp:14] #### Process Dataset - match_base ####
+I20220801 23:20:40.235309 2305695 exp_framework.cpp:19] ## Process File - "matching20.dat" ##
+I20220801 23:20:40.235411 2305695 exp_framework.cpp:34] vertex: 20 edge: 10
+I20220801 23:20:47.224169 2305695 exp_framework.cpp:39] time cost: 6s
+I20220801 23:20:47.224225 2305695 exp_framework.cpp:19] ## Process File - "matching30.dat" ##
+I20220801 23:20:47.224376 2305695 exp_framework.cpp:34] vertex: 30 edge: 15
+I20220801 23:27:07.783262 2305695 exp_framework.cpp:39] time cost: 380s
+I20220801 23:27:07.783601 2305695 exp_framework.cpp:19] ## Process File - "matching28.dat" ##
+I20220801 23:27:07.783763 2305695 exp_framework.cpp:34] vertex: 28 edge: 14
+I20220801 23:30:03.489122 2305695 exp_framework.cpp:39] time cost: 175s
+I20220801 23:30:03.489320 2305695 exp_framework.cpp:19] ## Process File - "matching32.dat" ##
+I20220801 23:30:03.489480 2305695 exp_framework.cpp:34] vertex: 32 edge: 16
+I20220801 23:44:42.205422 2305695 exp_framework.cpp:39] time cost: 878s
+I20220801 23:44:42.205698 2305695 exp_framework.cpp:19] ## Process File - "matching24.dat" ##
+I20220801 23:44:42.205840 2305695 exp_framework.cpp:34] vertex: 24 edge: 12
+I20220801 23:45:17.474663 2305695 exp_framework.cpp:39] time cost: 35s
+I20220801 23:45:17.474866 2305695 approximation_exp.cpp:59] ThreadNum - 8
+I20220801 23:45:17.474879 2305695 exp_framework.cpp:14] #### Process Dataset - match_base ####
+I20220801 23:45:17.475003 2305695 exp_framework.cpp:19] ## Process File - "matching20.dat" ##
+I20220801 23:45:17.475111 2305695 exp_framework.cpp:34] vertex: 20 edge: 10
+I20220801 23:45:23.287894 2305695 exp_framework.cpp:39] time cost: 5s
+I20220801 23:45:23.287995 2305695 exp_framework.cpp:19] ## Process File - "matching30.dat" ##
+I20220801 23:45:23.288166 2305695 exp_framework.cpp:34] vertex: 30 edge: 15
+I20220801 23:50:42.747546 2305695 exp_framework.cpp:39] time cost: 319s
+I20220801 23:50:42.747859 2305695 exp_framework.cpp:19] ## Process File - "matching28.dat" ##
+I20220801 23:50:42.748035 2305695 exp_framework.cpp:34] vertex: 28 edge: 14
+I20220801 23:53:05.523627 2305695 exp_framework.cpp:39] time cost: 142s
+I20220801 23:53:05.523864 2305695 exp_framework.cpp:19] ## Process File - "matching32.dat" ##
+I20220801 23:53:05.524026 2305695 exp_framework.cpp:34] vertex: 32 edge: 16
+I20220802 00:05:26.252557 2305695 exp_framework.cpp:39] time cost: 740s
+I20220802 00:05:26.252972 2305695 exp_framework.cpp:19] ## Process File - "matching24.dat" ##
+I20220802 00:05:26.253166 2305695 exp_framework.cpp:34] vertex: 24 edge: 12
+I20220802 00:05:55.683864 2305695 exp_framework.cpp:39] time cost: 29s
+I20220802 00:05:55.683995 2305695 approximation_exp.cpp:59] ThreadNum - 16
+I20220802 00:05:55.684007 2305695 exp_framework.cpp:14] #### Process Dataset - match_base ####
+I20220802 00:05:55.684154 2305695 exp_framework.cpp:19] ## Process File - "matching20.dat" ##
+I20220802 00:05:55.684273 2305695 exp_framework.cpp:34] vertex: 20 edge: 10
+I20220802 00:06:01.328714 2305695 exp_framework.cpp:39] time cost: 5s
+I20220802 00:06:01.328837 2305695 exp_framework.cpp:19] ## Process File - "matching30.dat" ##
+I20220802 00:06:01.328990 2305695 exp_framework.cpp:34] vertex: 30 edge: 15
+I20220802 00:11:35.884284 2305695 exp_framework.cpp:39] time cost: 334s
+I20220802 00:11:35.884663 2305695 exp_framework.cpp:19] ## Process File - "matching28.dat" ##
+I20220802 00:11:35.884853 2305695 exp_framework.cpp:34] vertex: 28 edge: 14
+I20220802 00:14:03.871263 2305695 exp_framework.cpp:39] time cost: 147s
+I20220802 00:14:03.871496 2305695 exp_framework.cpp:19] ## Process File - "matching32.dat" ##
+I20220802 00:14:03.871656 2305695 exp_framework.cpp:34] vertex: 32 edge: 16
+I20220802 00:26:43.752065 2305695 exp_framework.cpp:39] time cost: 759s
+I20220802 00:26:43.752413 2305695 exp_framework.cpp:19] ## Process File - "matching24.dat" ##
+I20220802 00:26:43.752564 2305695 exp_framework.cpp:34] vertex: 24 edge: 12
+I20220802 00:27:13.750675 2305695 exp_framework.cpp:39] time cost: 29s
+I20220802 00:27:13.750811 2305695 approximation_exp.cpp:62] Run AdvancedADCEnum - Exp2
+I20220802 00:27:13.750818 2305695 exp_framework.cpp:14] #### Process Dataset - match_base ####
+I20220802 00:27:13.750896 2305695 exp_framework.cpp:19] ## Process File - "matching20.dat" ##
+I20220802 00:27:13.751000 2305695 exp_framework.cpp:34] vertex: 20 edge: 10
+I20220802 00:27:39.282218 2305695 exp_framework.cpp:39] time cost: 25s
