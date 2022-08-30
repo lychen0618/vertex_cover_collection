@@ -5,8 +5,7 @@ ThreadPool::ThreadPool(int threads_limit)
     : thread_num_(threads_limit), mutex_(new std::mutex()), task_num_(0) {}
 
 ThreadPool::~ThreadPool() {
-    pool_.reset();
-    mutex_.reset();
+    pool_->join();
 }
 
 void ThreadPool::Start() {
