@@ -190,3 +190,25 @@ cc_test(
         "@com_google_googletest//:gtest_main"
     ]
 )
+
+cc_binary(
+    name = "vcc_client",
+    srcs = ["rpc/vcc_client.cpp"],
+    deps = [
+        "@com_github_grpc_grpc//:grpc++",
+        "@com_github_gflags_gflags//:gflags",
+        "//protos:vertex_cover",
+    ],
+)
+
+cc_binary(
+    name = "vcc_server",
+    srcs = ["rpc/vcc_server.cpp"],
+    deps = [
+        "@com_github_grpc_grpc//:grpc++",
+        "@com_github_grpc_grpc//:grpc++_reflection",
+        "//protos:vertex_cover",
+        "//:random_enum_auto_inc",
+        "//:advanced_adc_enum",
+    ],
+)

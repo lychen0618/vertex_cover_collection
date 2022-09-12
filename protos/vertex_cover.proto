@@ -28,7 +28,7 @@ message GenRequest {
   RawHyperGraph hyper_graph = 1;
   Algorithm algorithm = 2;
   RequestType request_type = 3;
-  bool multi_thread = 4;
+  double parameter = 4;
 }
 
 message VertexCoverList {
