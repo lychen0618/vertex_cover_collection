@@ -20,8 +20,8 @@ cc_library(
     ],
     deps=[
         "@com_github_google_glog//:glog",
-        "@boost//:thread",
-        "@boost//:asio"
+        # "@boost//:thread",
+        # "@boost//:asio"
     ]
 )
 
@@ -101,10 +101,14 @@ cc_library(
     name="exp",
     srcs=["experiments/exp_framework.cpp"],
     hdrs=["experiments/exp_framework.h"],
+    linkopts=[ 
+        "-l/usr/local/lib/libboost_filesystem.so",
+        "-l/usr/local/lib/libboost_system.so"
+    ],
     deps=[
         ":common",
-        "@boost//:filesystem",
-        "@boost//:algorithm"
+        # "@boost//:filesystem",
+        # "@boost//:algorithm"
     ]
 )
 
@@ -185,4 +189,26 @@ cc_test(
         ":random_enum_auto_inc",
         "@com_google_googletest//:gtest_main"
     ]
+)
+
+cc_binary(
+    name = "vcc_client",
+    srcs = ["rpc/vcc_client.cpp"],
+    deps = [
+        "@com_github_grpc_grpc//:grpc++",
+        "@com_github_gflags_gflags//:gflags",
+        "//protos:vertex_cover",
+    ],
+)
+
+cc_binary(
+    name = "vcc_server",
+    srcs = ["rpc/vcc_server.cpp"],
+    deps = [
+        "@com_github_grpc_grpc//:grpc++",
+        "@com_github_grpc_grpc//:grpc++_reflection",
+        "//protos:vertex_cover",
+        "//:random_enum_auto_inc",
+        "//:advanced_adc_enum",
+    ],
 )
