@@ -12,6 +12,7 @@ enum Algorithm {
   MMCS = 0;
   KS = 1;
   BERGE = 2;
+  BMR = 3;
 }
 
 message ValueIntList {
